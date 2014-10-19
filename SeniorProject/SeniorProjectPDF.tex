@@ -1,0 +1,3075 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+    \usepackage{graphicx} % Used to insert images
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{color} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    
+
+    
+    
+    \definecolor{orange}{cmyk}{0,0.4,0.8,0.2}
+    \definecolor{darkorange}{rgb}{.71,0.21,0.01}
+    \definecolor{darkgreen}{rgb}{.12,.54,.11}
+    \definecolor{myteal}{rgb}{.26, .44, .56}
+    \definecolor{gray}{gray}{0.45}
+    \definecolor{lightgray}{gray}{.95}
+    \definecolor{mediumgray}{gray}{.8}
+    \definecolor{inputbackground}{rgb}{.95, .95, .85}
+    \definecolor{outputbackground}{rgb}{.95, .95, .95}
+    \definecolor{traceback}{rgb}{1, .95, .95}
+    % ansi colors
+    \definecolor{red}{rgb}{.6,0,0}
+    \definecolor{green}{rgb}{0,.65,0}
+    \definecolor{brown}{rgb}{0.6,0.6,0}
+    \definecolor{blue}{rgb}{0,.145,.698}
+    \definecolor{purple}{rgb}{.698,.145,.698}
+    \definecolor{cyan}{rgb}{0,.698,.698}
+    \definecolor{lightgray}{gray}{0.5}
+    
+    % bright ansi colors
+    \definecolor{darkgray}{gray}{0.25}
+    \definecolor{lightred}{rgb}{1.0,0.39,0.28}
+    \definecolor{lightgreen}{rgb}{0.48,0.99,0.0}
+    \definecolor{lightblue}{rgb}{0.53,0.81,0.92}
+    \definecolor{lightpurple}{rgb}{0.87,0.63,0.87}
+    \definecolor{lightcyan}{rgb}{0.5,1.0,0.83}
+    
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{SeniorProjectPDF}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=blue,
+      linkcolor=darkorange,
+      citecolor=darkgreen,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+
+    \section{Jeremy Mulcahey's Senior Project: The IPython Notebook for Data Analysis}
+
+
+
+    \subsection{Contents}
+
+
+
+    \paragraph{1 Introduction}
+
+
+    
+
+
+    \paragraph{2 Starting with Python}
+
+
+    
+
+
+    \paragraph{3 Setting up the IPython Notebook}
+
+
+    
+
+
+    \paragraph{4 Starting with GitHub}
+
+
+    
+
+
+    \paragraph{5 Sharing IPython Notebooks with NBViewer}
+
+
+
+    \paragraph{6 R for the IPython Notebook}
+
+
+    
+
+
+    \paragraph{7 Analyzing NIST datasets in the IPython Notebook}
+
+
+    7.3 ANOVA: SiR Dataset
+
+7.4 Univariate Summary Statistics: PiDigits Dataset
+
+
+    \paragraph{8 Streaming Data in the IPython Notebook}
+
+
+    
+
+
+    \paragraph{9 Time Series, More with DataFrames, and Advanced Plotting in the
+IPython Notebook}
+
+
+    9.2 Geiger Counter Data
+
+
+    \paragraph{10 Formatting and Coverting IPython Notebooks }
+
+
+
+    \section{Chapter 1 Introduction}
+
+
+    This notebook is for anyone that has felt a tinge of excitement by the
+mention of terms such as: Data Science, Big Data, Python, etc. The
+IPython Notebook makes it easy to add another data analysis tool to your
+kit. This document contains installation and set up instructions for
+many of the tools that enable you to initially make the most of your own
+IPython Notebooks. This document will also provide examples using Python
+packages and coding in Python. As you grow more comfortable with Python,
+there are many alternatives to the IPython Notebook such as the IPython
+console, text editors, and IDEs, but those are not my focus. Dr.~Granger
+and his team are striving to make the IPython Notebook capable of
+analyzing and presenting data for all situations that will arise.
+
+
+    \subsection{1.1 Background Requirements}
+
+
+    Patience and an open mind. Ideally, this guide will be useful for the
+full range of statistics students from ``I have never programmed
+before'' to ``I know what i'm doing. I just want to know which programs
+I need and where to get them.''
+
+
+    \subsection{1.2 Goal}
+
+
+    To pass along the struggles, successes, and code I learned while
+analyzing data in the IPython Notebook. Some of the packages and
+programs I will provide information on are:
+
+Anaconda
+
+Python
+
+IPython Notebook
+
+GitHub \& Sharing IPython Notebooks
+
+Pandas
+
+Numpy
+
+Seaborn
+
+NBViewer
+
+Statsmodels
+
+Requests
+
+JSON
+
+ASCII
+
+SciPy
+
+Rpy2
+
+R in IPython Notebook
+
+urllib2
+
+and more!
+
+
+    \subsection{1.3 Disclaimer}
+
+
+    From the moment I started this project with Dr.~Doi, I have had to learn
+everything I am sharing in this document. I have no prior experience
+with Python, any of its packakges, LaTeX, the IPython Notebook, etc.
+Many of the approaches and work arounds are that of a novice. Much of
+the code I provide is not the only way to accomplish the task at hand
+and most of it might not be the best way either. If you feel a section
+of code can be improved, or you find packages that do the same work as
+some of my functions, I encourage you to use them or write your own
+improvements.
+
+I hope you gain as much using this notebook as I gained writing it. 
+
+
+    \section{Chapter 2 Starting with Python}
+
+
+
+    \subsection{2.1 Why Python?}
+
+
+    The obvious answer is the IPython Notebook. IPython Notebook is a
+one-stop shop for data analysis, widgets, homework, and projects. The
+IPython notebook can take the place of an IDE, text editor, and/or
+console. Working in the IPython Notebook enables you to write code,
+analyze data in Python and R, format using LaTeX and HTML, and produce
+graphs - all in the same document! The notebooks can be converted to
+HTML, LaTeX, PDF, and more. The notebooks can also be shared, stored,
+and backed up using NBViewer and GitHub, which we will discuss later.
+
+Two important points to keep in mind as we introduce Python are:
+
+Python is Executebale Pseudocode,
+
+\& Python is an object oriented language.
+
+If this is the first time you have heard these terms, there is no reason
+to be intimiated. Each of these bullet points is effectively
+contributing to the same idea, ``{[}T{]}he Python language is easy to
+fall in love with.'' (McKinney)
+
+Python is Executeable Pseudocode. This is a spoiling characteristic of
+the Python language. As you learn about writing code, or for those with
+coding experience, Python will surprise you time and time again as code
+you write executes with minimal syntax errors. With little understanding
+of programming logic, users can write what they think should work and,
+more often than not, it will work.
+
+Python is an object oriented language. Many smarter and more experienced
+programmers are working tirelessly to make analyzing data as painless as
+possible. A large portion of what we need Python for has already been
+coded into modules, libraries, methods, objects, etc. Thanks to these
+objects containing their own functions/methods and data,various examples
+in this notebook will require very few lines of code to produce a lot of
+information.
+
+If you would like a more indepth introduction of the IPython Notebook,
+here is what CO-founder Dr.~Granger has to say about it:
+http://bit.ly/1rVyrpi
+
+
+    \subsection{2.2 Installing Python}
+
+
+    During this project, Dr.~Doi has put together a document for
+``Installation and Configuration of Python on PC* (mainly based on
+Sheppard's Inrtro to Python for Econometrics, Statisics, and Data
+Analysis - IPESDA)''. Most of this section will be directly from his
+document. *{[}see IPESDA for install instructions for Mac/Linux{]}
+
+The first and largest step is the installation of Anaconda. Anaconda is
+a ``Completely free enterprise-ready Python distribution for large-scale
+data processing, predictive analytics, and scientific computing'' with
+``195+ of the most popular Python packages for science, math,
+engineering, and data analysis''. Thanks to Anaconda, beginning in
+Python is a relatively painless process.
+
+    • Download Anaconda (https://store.continuum.io/cshop/anaconda/)
+
+Follow the link above then click on ``Download Anaconda'' in the upper
+right.
+
+Click on the picture that matches your operating system.
+
+For this project, everything is coded in Python 2.7, not 3.4.
+Additionally, the books and resources Dr.~Doi and I used to learn python
+and build this project suggest the use of Python 2.7, for now. So,
+download Python 2.7.
+
+Open the installer and follow the steps for the steps for the
+default/recommended installation. During installation, be sure to
+install in default directory(C:/Anaconda). If Anaconda is not installed
+there, be sure that target directory contains no unicode characters or
+spaces. Otherwise subsequent steps may not work well. 
+
+
+    \subsection{2.3 Updating Conda, Anaconda, and Anaconda Packages}
+
+
+    • After installation is complete, open the command prompt. This can be
+done by opening the windows start menu by clicking in the lower left of
+your desktop. Just above the icon there will be a search box. Type
+letters cmd into the search box and hit enter. A black window will open
+on the screen. Type the following lines one at time, hitting enter after
+each one and allowing the program to finish before submitting the next
+line:
+
+\begin{verbatim}
+conda update conda
+conda update anaconda
+\end{verbatim}
+
+The statements above can be used at any point to ensure that Anaconda is
+up to date with the latest packages.
+
+I recommend repeating this update process periodically with any packages
+you use. Simply open cmd, type conda update and the name of the package
+you want to check for update and hit enter. Do it now.
+
+\begin{verbatim}
+conda update pandas
+\end{verbatim}
+
+The statement above will update the pandas package and the packages it
+is built on (ie Numpy). This is helpful since the individual packages
+update more frequently than Anaconda. A few times during this project I
+was attempting to access functions in a packages that I found in online
+documentation, but they did not exist. Executing these update commands
+solved the problem every time.
+
+
+    \subsection{2.4 Installing and Updating Additional Packages}
+
+
+    The command prompt (cmd) should still be open at this point. If it is
+not, then open it.
+
+Let's install our first package using the command prompt the same way we
+used it to update a package. Type the following line and hit enter:
+
+\begin{verbatim}
+pip install seaborn
+\end{verbatim}
+
+This statement installs the ``Seaborn: statistical data visulation''
+package. This will be used in a later section.
+
+This process can be repeated for any packages you come across and want
+to try.
+
+\begin{verbatim}
+pip install [name of package]
+\end{verbatim}
+
+Note: Packages installed using pip have a different update command:
+
+\begin{verbatim}
+pip install --upgrade [name of package]
+\end{verbatim}
+
+TIP: For pip packages that fail to update, this has worked for me:
+
+\begin{verbatim}
+pip uninstall seaborn
+pip install seaborn
+\end{verbatim}
+
+
+    \subsection{2.5 Anaconda Add-Ons (Optional)}
+
+
+    I intend to use these Add-Ons in the future, but I did not use them for
+this project. If you want to move forward with the installations, skip
+to the next section. Otherwise, here are the descriptions and
+instructions from Dr.~Doi's installation guide:
+
+• Get Anaconda Add-Ons (https://store.continuum.io/cshop/anaconda/).
+
+\begin{verbatim}
+conda update conda
+conda install accelerate
+conda install iopro
+\end{verbatim}
+
+
+    \section{Chapter 3Setting up the IPython Notebook}
+
+
+
+    \subsection{3.1 Install MathJax}
+
+
+    Whether or not you intend to use LaTeX, it is recommended that MathJax
+is installed before using IPython Notebook. The package that enables us
+to use LaTeX code in the IPython Notebook is called MathJax. Since
+MathJax is included in the Anaconda package list
+(http://docs.continuum.io/anaconda/pkg-docs.html), it can be managed
+with conda install and conda update (not pip). Running this conda
+install will add MathJax 2.2-0 (or later) as a ``NEW'' package. So,
+install it now:
+
+\begin{verbatim}
+conda install mathjax
+Hit y, then enter.
+\end{verbatim}
+
+
+    \subsection{3.2 Accessing the IPython Notebook}
+
+
+    Everything, from a Python standpoint, is ready to use. There are several
+ways to access the IPython Notebook for regular use. I would use one of
+the following three options:
+
+Command Prompt,
+
+Windows start up,
+
+or creating a shortcut.
+
+Command Prompt: Since the Anaconda installation has the IPython Notebook
+open in a restrictive directory, the command prompt is the most
+versatile way to your notebook kernel. This approach gives you the
+option to work out of any directory you choose. I prefer to use
+C:\textless{}/b\textgreater{} as my home directory since all of my
+notebooks and files are readily accessible from this location. To do
+this I type, type cd ../../. Then type ipython notebook.
+
+If you choose to use a different directory, or have more directories to
+back out of to reach C:, simply use cd ../ for each directory you need
+to back out of, then cd {[}directory name{]} to change to the desired
+directory (ie. cd desktop/myfiles/calpoly)
+
+Windows start up: Click the Windows start up menu and type IPython into
+the search box. You will see these options:
+
+Select IPython Notebook from the list and it will open in your
+Web-browser.
+
+Creating a shortcut: Do eveything from the ``Windows start up''
+instructions above, except for selecting ``IPython Notebook from the
+list''. Instead, right-click and hold on IPython Notebook and drag it to
+your desktop. Release the right-click and select Create shortcuts here.
+
+From there, you can move the shortcut anywhere you desire.
+
+
+    \subsection{3.3 Your first IPython Notebook}
+
+
+    Once IPython Notebook opens in the browser, you will see a relatively
+blank page with the IP{[}y{]}: Notebook heading.
+
+Click on New Notebook.
+
+Change the title by clicking on the word Untitled by the IP{[}y{]}:
+Notebook header.
+
+``Enter a new notebook name:'', hit ok, and you will have your first
+IPython notebook.
+
+You're ready to start using Python, but that's only part of our process.
+The last big step we need to take is sharing and backing-up your
+notebooks on GitHub.
+
+Note:After these installation chapters, if you would like to learn more
+about the IPython Notebook from Co-founder Dr.~Granger:
+http://bit.ly/Zsoiqc 
+
+
+    \section{Chapter 4 Starting with GitHub}
+
+
+    If you haven't heard of GitHub yet, you will. Several people I have
+asked about getting a data science job have given me the same order,
+``Get a GitHub''. GitHub is the easiest way to share your work with
+potential employers, back-up your projects/assignments, and work
+simultaneously with other students/colleagues on different sections of
+the same project. Aside from how essential GitHub is for aspiring data
+scientists and programmers, it's required to use NBViewer (how we
+currently share the IPython Notebooks).
+
+
+    \subsection{4.1 Create an account}
+
+
+    Creating an account with GitHub is very straightforward. Go to
+https://github.com/ and create one now.
+
+
+    \subsection{4.2 Learn what GitHub is and how to use it}
+
+
+    GitHub has greatly simplified every process we will need to set up and
+share Notebooks. We can work around many of the issues I struggled with
+over the past year.
+
+Thoroughly read this GitHub introduction (it's brief) and you will
+almost be done with setting up and using your GitHub.
+
+https://guides.github.com/activities/hello-world/
+
+
+    \subsection{4.3 Installing and understanding GitHub Desktop}
+
+
+    This miraculous tool is what now makes GitHub so simple that anyone can
+use it.
+
+Install GitHub Desktop using this link: https://windows.github.com/
+
+Read this brief tutorial on GitHub desktop:
+https://guides.github.com/introduction/getting-your-project-on-github/index.html
+
+If you are new to programming, I highly recommend using the desktop tool
+from this point on.
+
+
+    \subsection{4.4 Using GitHub Desktop}
+
+
+    Open GitHub desktop.
+
+Locate the folder that stored your IPython Notebook from earlier. If you
+are not sure where it is stored, you can perform a windows search to
+find it.
+
+Type the name of your notebook into the search bar, or search for
+``IPython Notebooks''.
+
+Once you have located the folder containing your notebook, drag it into
+GitHub desktop (as done in the previous tutorial).
+
+Now the repository can be viewed online in your GitHub account.
+
+Since the tutorial uses GitHub Desktop for Mac, I'll show you how I use
+it for windows.
+
+Return to your IPython Notebook in your web browser. Type print(`Hello
+World') into the box and hit Shift+Enter. The notebook will execute this
+line of code. Hit the save icon on the left side of the icon bar.
+
+Having completed a change to your Notebook, return to GitHub desktop.
+GitHub desktop will now say you have Uncommitted changes. In the summary
+box, write what you feel summarizes the change you made. For this case,
+type Hello into the Summary box. You can add a detailed description in
+the Description box, if you choose.
+
+The right side of the program will show you what has been removed and
+added from the file with the Uncommitted Changes. Below is an example of
+a change I made to this section.
+
+After reviewing the changes, click Commit to master.
+
+Finally, in the upper right corner of the program, click the Sync
+button.
+
+From now on, your notebooks will be automatically updated in GitHub
+desktop. Repeat this commit process whenever you want to back them up
+online or share the changes you have made. 
+
+
+    \section{Chapter 5 Sharing IPython Notebooks with NBViewer}
+
+
+    The hard parts are over.
+
+To share notebooks, we need to use NBViewer. ``IPython Notebook Viewer
+is a free webservice that allows you to share static html versions of
+hosted notebook files. If a notebook is publicly available, by giving
+its url to the Viewer, you should be able to view it.''
+
+To obtain a url for sharing your notebook, go to
+http://nbviewer.ipython.org/ Simply type your GitHub username (Section
+4.1) into the box provided and hit ``Go!''.
+
+Save the URL from this page. This is the page that allows others to view
+your committed IPython Notebooks on GitHub using NBViewer!
+
+ 
+
+
+    \section{Chapter 6R for IPython Notebook}
+
+
+    Is it time to code yet?
+
+It could be\ldots{} As statistics majors, we have a required course in
+R. Since some of you might have prior experience with R, we should set R
+up right now. You can familiarize yourself with your IPython Notebook by
+running your pre-existing R scripts, or code snippets from your
+introductory statistics courses.
+
+NOTE: This is the most important note yet. Some time, some day, you can
+expect to see Python 3 and R support built-in to the IPython Notebook
+itself. It will be as simple as a dropdown menu in the upper-right
+corner of the notebook.
+
+Until then, if you really want R now (like I did), buckle-up! It's going
+to be a bumpy ride.
+
+
+    \subsection{6.1 Installing Rpy2}
+
+
+    Rpy2 is the package we need to run R through the IPython Notebook.
+Unfortunately, it's not as simple as pip install rpy2.
+
+I have it on good authority that this entire section is completely
+unnecessary for Mac users. Rpy2 installs and works on Macs with zero
+issues. For us Windows users, you are benefiting from many meetings
+between Cal Poly's Dr.~Brian Granger and myself, and many failed
+attempts to install Rpy2 on Windows. Luckly, there is now a native R
+kernel for IPython.
+
+To obtain Rpy2, click on the link. Hit control+f and type rpy2 into the
+search bar. http://www.lfd.uci.edu/\textasciitilde{}gohlke/pythonlibs/
+
+Hitting enter a couple times should take you to the Rpy2 section.
+Download version 2-2.4.3 for the correct operating system.
+
+Follow the next steps carefully. In my experience, here's where it gets
+tricky. The wrong combination of Rpy2 and version of R crashes the
+kernel. If you have R installed, I recommend backing up your scripts
+before proceeding (and anything else you want to save). If you do not
+have R installed, and you are using Windows 8.1, I recommend installing
+R version 3.0.2. http://cran.r-project.org/bin/windows/base/old/3.0.2/
+
+For those without R installed:
+
+Follow the link above. Download and install R version 3.0.2.
+
+Run the Rpy2 installation file.
+
+For those with R installed:
+
+Run the Rpy2 installation file.
+
+
+    \subsection{6.2 Testing the Rpy2 installation}
+
+
+    Go to your IPython Notebook. In the next cell (the empty one below Hello
+World), type these lines in their own cells (hitting shift+enter after
+each line):
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}1}]:} \PY{k+kn}{import} \PY{n+nn}{rpy2}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{o}{\PYZpc{}}\PY{k}{load\PYZus{}ext} \PY{n}{rpy2}\PY{o}{.}\PY{n}{ipython}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{install}\PY{o}{.}\PY{n}{packages}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{lattice}\PY{l+s}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+    Scroll down to USA and select one of the USA portals.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{library}\PY{p}{(}\PY{n}{lattice}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}4}]:} <StrVector - Python:0x000000000CDD5E48 / R:0x0000000022F81408>
+        [str, str, str, \ldots, str, str, str]
+\end{Verbatim}
+        
+    If your output matches mine, then R is working. It is successfully
+downloading and installing packages. Skip ahead to Chapter 7.
+
+
+    \subsection{6.3 If the Kernel Crashes}
+
+
+    Go to your windows control panel.
+
+Scroll down to Programs and Features.
+
+Uninstall both R for Windows and Python 2.7 rpy2-2.4.3.
+
+Download a different version of R (ie 3.0.1, 3.0.3, 3.1.0, etc). Install
+the new version of R and install Rpy2 again.
+
+Return to the ``Testing Rpy2 Installation'' section above and repeat the
+process.
+
+There should be a combination that enables R to work in the IPython
+Notebook.
+
+After Rpy2 is working as intended, install any version of R you prefer
+and add your backed up files. Rpy2 will work with the version it needs
+to and when you work exclusively in R, you can use your preferred
+version.
+
+
+    \subsection{6.4 R installation Final Notes}
+
+
+    Dr.~Granger and his team are constantly working to improve functionality
+in all areas of the IPython Notebook. R is one of those areas.
+Originally, getting Rpy2 to work on a PC was almost impossible. Then, it
+was very hard. Now, it's a bit touchy. Soon, as previously mentioned, it
+will be a drop down option in the notebook itself. 
+
+
+    \section{Chapter 7Analyzing NIST datasets in the IPython Notebook}
+
+
+    Before introducing Python packages as an alternative to R and SAS,
+Dr.~Doi and I felt it wise to investigate the precision of Python's data
+analysis capabilities compared to R's and SAS's.
+
+The NIST (National Institute of Standards and Technology) ``is the
+federal technology agency that works with industry to develop and apply
+technology, measurements, and standards.''
+
+In this section I will analyze datasets from the NIST's Dataset
+Archives. I will compare the NIST's ``Certified Values'' to the values
+obtained from analyzing the data in R, SAS, and Python.
+
+This section will provide an introduction to coding in Python, using
+statistical packages for analyzing and visualizing data, and establish
+ways to extract precise values in R, SAS, and Python.
+
+Note: If you would like to learn more about the Python syntax, visit
+Dr.~Granger's notebook (http://bit.ly/1y8h6hS). Otherwise, you can copy
+and paste sections of my code and change the arguments as needed.
+
+
+    \subsection{7.1 Python Packages for data analysis and the Import Cell}
+
+
+    Packages can be imported for use in any cell at any time. My preference
+is to import relevant packages and commands into a common cell at the
+beginning of the notebook, or section of the notebook. This will provide
+a collection of packages, with their abbreviations, in one convenient
+location. In the event that you cannot remember if you have imported a
+package, or what you imported it as, you can jump to your import cell.
+
+    Below is the list of packages we will need for this section. Please go
+to your cmd and pip install urllib2 before moving on. Then, copy and
+execute the cell of packages by pasting them into your notebook cell and
+hitting shift+enter.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{import} \PY{n+nn}{urllib2} \PY{k+kn}{as} \PY{n+nn}{ul}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+        \PY{k+kn}{import} \PY{n+nn}{scipy} \PY{k+kn}{as} \PY{n+nn}{sp}
+        \PY{k+kn}{from} \PY{n+nn}{statsmodels.formula.api} \PY{k+kn}{import} \PY{n}{ols}
+        \PY{k+kn}{from} \PY{n+nn}{statsmodels.stats.anova} \PY{k+kn}{import} \PY{n}{anova\PYZus{}lm}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+        \PY{k+kn}{from} \PY{n+nn}{IPython.core.display} \PY{k+kn}{import} \PY{n}{Image}
+        \PY{k+kn}{from} \PY{n+nn}{matplotlib.gridspec} \PY{k+kn}{import} \PY{n}{GridSpec}
+        \PY{k+kn}{import} \PY{n+nn}{seaborn} \PY{k+kn}{as} \PY{n+nn}{sns}
+        
+        \PY{c}{\PYZsh{}This line allows the graphs to show up in the notebook cells}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+\end{Verbatim}
+
+
+    \subsection{7.2 Linear Regression Analysis: Norris Dataset}
+
+
+
+    \subsubsection{7.2.1 Object Oriented Language Introduction: Reading in and preparing
+data from an ASCII webpage}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c}{\PYZsh{}create a variable for the web address}
+        \PY{n}{url} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{http://www.itl.nist.gov/div898/strd/lls/data/LINKS/DATA/Norris.dat}\PY{l+s}{\PYZsq{}}
+        
+        \PY{c}{\PYZsh{}open creates a file object named Norris.dat}
+        \PY{c}{\PYZsh{}wb allows us to write to the file object}
+        \PY{c}{\PYZsh{}file objects have a built\PYZhy{}in function to write to the file}
+        \PY{c}{\PYZsh{}use the urllib2 as ul package to write the website to the file}
+        \PY{c}{\PYZsh{}the .read function is built\PYZhy{}in to the ul object}
+        \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/Norris.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{wb}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{ul}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{url}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    This is our first cell that takes advantage of Python being an object
+oriented language. It might take some time to wrap your head around it,
+or it might not.
+
+What just happened is\ldots{} as we create objects, which are exactly
+what you might intuitively think of as objects (ie: a ball), those
+objects have their own functions (methods) and characteristics (data) we
+can immediately use.
+
+Let's continute with the ball example. If you have a ball, you do not
+determine its color, size, or inertia. You do not show the ball how to
+roll. The ball looks how it looks and if you set it on a decline, it
+rolls away.
+
+The ball knows what it knows, and you know how to use it to get what you
+want. You can roll the ball at pins, throw it, roll it up hill, hit it
+with your hand, hit it with a racket, etc.
+
+That is what we are doing here. A file knows how to write to itself, and
+the open function knows how to read the content of the page. By passing
+arguments (such as the filename and url) we are using what the objects
+know to accomplish what we need to accomplish.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{c}{\PYZsh{}creates a np array named NorrisData}
+        \PY{c}{\PYZsh{}uses the loadtxt method from the NumPy package (np) to read in }
+        \PY{c}{\PYZsh{}the data from line 60 to the end of the file}
+        \PY{n}{NorrisData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/Norris.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{60}\PY{p}{)}
+\end{Verbatim}
+
+    Since the NIST datasets are provided in ASCII and start on line 60 of
+the webpage, I found the best way to import them was to create the file
+(which we just completed), import them as a NumPy array, then convert
+them to a Pandas DataFrame.
+
+Having data in a Pandas DataFrame provides the greatest amount of
+flexbility for analyzing and manipulating data. My goal through-out the
+project was to make sure I could get any data I was working with into
+this format.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{c}{\PYZsh{}create a DataFrame object using the Pandas package (pd)}
+        \PY{c}{\PYZsh{}the columns can be named during the conversion from ndarray to pd.df}
+        \PY{n}{NorrisFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{NorrisData}\PY{p}{,}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Always check to make sure the data was read in correctly. There are many
+ways to do this.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{c}{\PYZsh{}the dataframe object displays its first five observations}
+        \PY{n}{NorrisFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}6}]:}        y      x
+        0    0.1    0.2
+        1  338.8  337.4
+        2  118.1  118.2
+        3  888.0  884.6
+        4    9.2   10.1
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{c}{\PYZsh{}the dataframe object displays its last five observations}
+        \PY{n}{NorrisFrame}\PY{o}{.}\PY{n}{tail}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:}         y      x
+        31  117.6  118.3
+        32  228.9  229.2
+        33  668.4  669.1
+        34  449.2  448.9
+        35    0.2    0.5
+\end{Verbatim}
+        
+    It's clear to me that we have all 36 observations (indicies 0 to 35).
+The first value matches the first value of the webpage and the last
+value macthes the last value of the webpage. If you're uncomfortable
+with the indexing, you can check the number of observations with:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{c}{\PYZsh{}number of observations}
+        \PY{n+nb}{len}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}8}]:} 36
+\end{Verbatim}
+        
+    Now is a good time to introduce the dir() function and explain why the
+previous two functions required no arguments.
+
+In Python, accessing functions/methods of an object always passes the
+object as the first argument. We do not see it, but what the code is
+really doing is executing NorrisFrame.head(NorrisFrame), which returns
+the head of the NorrisFrame object.
+
+The dir() function is how I knew to use the .head() and .tail()
+functions.
+
+To access the full list of data and methods an object has, simply type:
+dir(object name)
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{c}{\PYZsh{}execute this code in your notebook }
+         \PY{c}{\PYZsh{}it is too much output for this document}
+         \PY{n+nb}{dir}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{)}
+\end{Verbatim}
+
+    As you can see, the Pandas DataFrame is a robust and versatile object.
+
+    Before moving to the next section, it's worth summarzing and
+acknowledging what we've done. We created a data file from an ASCII
+webpage, read the data file into an array, and converted it to a
+DataFrame with named columns - in 4 lines of code.
+
+
+    \subsubsection{7.2.2 NIST Certified Values}
+
+
+    The Certified values we are trying to match can be found at:
+http://www.itl.nist.gov/div898/strd/anova/SiRstv\_cv.html
+
+For easy reference, I have included them:
+
+The Certified values are quite precise. It's important to view them so
+we can match the number of decimal places using SAS, R, and Python.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{c}{\PYZsh{}saving the values as strings (ie in quotes \PYZsq{}\PYZsq{}) helps us with future }
+         \PY{c}{\PYZsh{}steps in this process, we will need their len() and to compare them digit by }
+         \PY{c}{\PYZsh{}digit, this also solves a problem I had with trailing zeros being ignored}
+         \PY{n}{B0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}0.262323073774029}\PY{l+s}{\PYZsq{}}
+         \PY{n}{B1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.00211681802045}\PY{l+s}{\PYZsq{}}
+         \PY{n}{STDofEstB0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.232818234301152}\PY{l+s}{\PYZsq{}}
+         \PY{n}{STDofEstB1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.000429796848199937}\PY{l+s}{\PYZsq{}}
+         \PY{n}{resstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.884796396144373}\PY{l+s}{\PYZsq{}}
+         \PY{n}{Rsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.999993745883712}\PY{l+s}{\PYZsq{}}
+         \PY{n}{ModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.13232369}\PY{l+s}{\PYZsq{}}
+         \PY{n}{ModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.13232369}\PY{l+s}{\PYZsq{}}
+         \PY{n}{ModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{26.6173985294224}\PY{l+s}{\PYZsq{}}
+         \PY{n}{ModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.782864662630069}\PY{l+s}{\PYZsq{}}
+         \PY{n}{Fstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{5436385.54079785}\PY{l+s}{\PYZsq{}}
+         
+         \PY{c}{\PYZsh{}creates an array object named CertVals containing the certified values}
+         \PY{n}{CertVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{B0}\PY{p}{,} \PY{n}{B1}\PY{p}{,} \PY{n}{STDofEstB0}\PY{p}{,} \PY{n}{STDofEstB1}\PY{p}{,}\PY{n}{resstd}\PY{p}{,}\PY{n}{Rsq}\PY{p}{,}\PY{n}{ModSS}\PY{p}{,}
+                              \PY{n}{ModMSE}\PY{p}{,} \PY{n}{ModSSResid}\PY{p}{,}\PY{n}{ModMSEResid}\PY{p}{,}\PY{n}{Fstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    We now have the NIST Certified values in an array for our later
+comparisons.
+
+
+    \subsubsection{7.2.3 Linear Regression and ANOVA values in Python}
+
+
+    The package we will use for data analysis in this notebook is
+Statsmodels.
+
+Their help documentation can be found at:
+http://statsmodels.sourceforge.net/
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{c}{\PYZsh{}we imported ols (Oridnary Least Squares) in our import cell}
+         \PY{c}{\PYZsh{}we named our columns x and y, now we need to tell the OLS function}
+         \PY{c}{\PYZsh{}what we want to regress. The second argument is our DataFrame.}
+         \PY{n}{NorrisLM} \PY{o}{=} \PY{n}{ols}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{y \PYZti{} x}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{NorrisFrame}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         \PY{k}{print} \PY{n}{NorrisLM}\PY{o}{.}\PY{n}{summary}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+OLS Regression Results                            
+==============================================================================
+Dep. Variable:                      y   R-squared:                       1.000
+Model:                            OLS   Adj. R-squared:                  1.000
+Method:                 Least Squares   F-statistic:                 5.436e+06
+Date:                Sun, 12 Oct 2014   Prob (F-statistic):           4.65e-90
+Time:                        20:57:41   Log-Likelihood:                -45.647
+No. Observations:                  36   AIC:                             95.29
+Df Residuals:                      34   BIC:                             98.46
+Df Model:                           1                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [95.0\% Conf. Int.]
+------------------------------------------------------------------------------
+Intercept     -0.2623      0.233     -1.127      0.268        -0.735     0.211
+x              1.0021      0.000   2331.606      0.000         1.001     1.003
+==============================================================================
+Omnibus:                        2.696   Durbin-Watson:                   1.272
+Prob(Omnibus):                  0.260   Jarque-Bera (JB):                1.566
+Skew:                          -0.450   Prob(JB):                        0.457
+Kurtosis:                       3.485   Cond. No.                         855.
+==============================================================================
+    \end{Verbatim}
+
+    
+
+    As you can see from the output table, the results provided by OLS are
+far from the precision we need. Like R and SAS, we can extract more
+decimal places. Some of these values can be extracted directly from the
+linear model object and others have to be accessed through the
+EstimatedParameters object.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{c}{\PYZsh{}create an Estimated parameters object}
+         \PY{n}{NorrisParams} \PY{o}{=} \PY{n}{NorrisLM}\PY{o}{.}\PY{n}{params}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{c}{\PYZsh{}repr() converts our values to strings without losing truncating them}
+         \PY{n}{PB0} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisParams}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n}{PB1} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisParams}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{n}{PSTDofEstB0} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{bse}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         \PY{n}{PSTDofEstB1} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{bse}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{n}{Presstd} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{mse\PYZus{}resid}\PY{p}{)}\PY{p}{)}
+         \PY{n}{PRsq} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{rsquared}\PY{p}{)}
+         \PY{n}{PModSS} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{ess}\PY{p}{)}
+         \PY{n}{PModMSE} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{mse\PYZus{}model}\PY{p}{)}
+         \PY{n}{PModSSResid} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{ssr}\PY{p}{)}
+         \PY{n}{PModMSEResid} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{mse\PYZus{}resid}\PY{p}{)}
+         \PY{n}{PFstat} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{fvalue}\PY{p}{)}
+         
+         \PY{n}{PyVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{PB0}\PY{p}{,} \PY{n}{PB1}\PY{p}{,} \PY{n}{PSTDofEstB0}\PY{p}{,} \PY{n}{PSTDofEstB1}\PY{p}{,}\PY{n}{Presstd}\PY{p}{,}\PY{n}{PRsq}\PY{p}{,}
+                              \PY{n}{PModSS}\PY{p}{,}\PY{n}{PModMSE}\PY{p}{,} \PY{n}{PModSSResid}\PY{p}{,}\PY{n}{PModMSEResid}\PY{p}{,}\PY{n}{PFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Unforunately, there's no shortcut or easier explanation to what happened
+in the cell above. Determining how to extract those values was the
+result of a lot of time, dir() usage, and help documentation. The great
+part is, once you've done it, you'll know how to repeat the process (as
+we've done here by replicating my extractions).
+
+
+    \subsubsection{7.2.4 Linear Regression and ANOVA values in R (using Rpy2)}
+
+
+    Here's our first real look at R in the IPython Notebook. We can use this
+notebook to extract the necessary values for our precision comparison
+(SAS will be a different story).
+
+    To prepare for working with R, I exported our Pandas DataFrame as a csv
+file.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{NorrisFrame}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/data/NorrisFrame.txt}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    As i'm sure you noticed during the Rpy2 installation, we need import and
+load rpy2 to use it.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{k+kn}{import} \PY{n+nn}{rpy2}
+         \PY{o}{\PYZpc{}}\PY{k}{load\PYZus{}ext} \PY{n}{rpy2}\PY{o}{.}\PY{n}{ipython}
+\end{Verbatim}
+
+    Since this notebook is about using Python and the IPython Notebook, the
+R and SAS data extractions will be brief.
+
+To run R code in your notebook, start the line with \%R. If you want
+execute an entire cell of R code, start the cell with \%\%R.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+         \PY{c}{\PYZsh{}read in data}
+         \PY{n}{setwd}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+         \PY{n}{Norris} \PY{o}{=} \PY{n}{read}\PY{o}{.}\PY{n}{csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/NorrisFrame.txt}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{n}{T}\PY{p}{)}\PY{p}{;}
+         \PY{n}{NorrisFrame} \PY{o}{=} \PY{k}{as}\PY{o}{.}\PY{n}{data}\PY{o}{.}\PY{n}{frame}\PY{p}{(}\PY{n}{Norris}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{head}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}16}]:}    X      y      x
+         0  0    0.1    0.2
+         1  1  338.8  337.4
+         2  2  118.1  118.2
+         3  3  888.0  884.6
+         4  4    9.2   10.1
+         5  5  228.1  226.5
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{tail}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}17}]:}     X      y      x
+         0  30   10.2   11.1
+         1  31  117.6  118.3
+         2  32  228.9  229.2
+         3  33  668.4  669.1
+         4  34  449.2  448.9
+         5  35    0.2    0.5
+\end{Verbatim}
+        
+    We have verified the data was read in correctly.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+         \PY{c}{\PYZsh{}analysis in R}
+         \PY{n}{NorrisLM} \PY{o}{=} \PY{n}{lm}\PY{p}{(}\PY{n}{y} \PY{o}{\PYZti{}} \PY{n}{x}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{NorrisFrame}\PY{p}{)}\PY{p}{;}
+         \PY{n}{NorrisResid} \PY{o}{=} \PY{n}{NorrisLM}\PY{err}{\PYZdl{}}\PY{n}{residuals}\PY{p}{;}
+         \PY{n}{NorrisCoef} \PY{o}{=} \PY{n}{NorrisLM}\PY{err}{\PYZdl{}}\PY{n}{coefficients}\PY{p}{;} 
+         \PY{n}{NorrisANOVA} \PY{o}{=} \PY{n}{aov}\PY{p}{(}\PY{n}{y} \PY{o}{\PYZti{}} \PY{n}{x}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{NorrisFrame}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+         \PY{c}{\PYZsh{}obtaining precise numbers in R}
+         \PY{k}{print}\PY{p}{(}\PY{n}{summary}\PY{p}{(}\PY{n}{NorrisANOVA}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{;}
+         \PY{k}{print}\PY{p}{(}\PY{n}{summary}\PY{p}{(}\PY{n}{NorrisLM}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{;}
+         \PY{k}{print}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{deviance}\PY{p}{(}\PY{n}{NorrisANOVA}\PY{p}{)}\PY{o}{/}\PY{n}{df}\PY{o}{.}\PY{n}{residual}\PY{p}{(}\PY{n}{NorrisANOVA}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=} \PY{l+m+mi}{20}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    Currently, these values print to the R kernel in your IPython Notebook
+console: 
+
+    There are different tricks you can experiment with in order to print to
+the notebook instead of the console, but they're not the focus of this
+section (and will soon be unnecessary). If you want to be able to copy
+and paste the values we need, copy and paste my R code into R and run
+it.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{n}{RB0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}0.26232307377411718}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RB1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.00211681802045427}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RSTDofEstB0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.23281823430115431}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RSTDofEstB1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.00042979684819994}\PY{l+s}{\PYZsq{}}
+         \PY{n}{Rresstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.88479639614437943784}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RRsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.999993745883712}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.13232369348406792}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.13232369348406792}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{26.61739852942280038}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.78286466263010001665}\PY{l+s}{\PYZsq{}}
+         \PY{n}{RFstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{5436385.5407999996096}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{RVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{RB0}\PY{p}{,} \PY{n}{RB1}\PY{p}{,} \PY{n}{RSTDofEstB0}\PY{p}{,} \PY{n}{RSTDofEstB1}\PY{p}{,}\PY{n}{Rresstd}\PY{p}{,}\PY{n}{RRsq}\PY{p}{,}
+                             \PY{n}{RModSS}\PY{p}{,}\PY{n}{RModMSE}\PY{p}{,} \PY{n}{RModSSResid}\PY{p}{,}\PY{n}{RModMSEResid}\PY{p}{,}\PY{n}{RFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.2.5 Linear Regression and ANOVA values in SAS}
+
+
+    Here is my code for the SAS analysis and value extractions:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{OPTIONS} \PY{n}{NODATE} \PY{n}{NONUMBER} \PY{n}{CENTER} \PY{n}{LS}\PY{o}{=}\PY{l+m+mi}{160}\PY{p}{;}
+         \PY{o}{*}\PY{n}{Removes} \PY{n}{the} \PY{n}{header} \PY{n}{information} \PY{o+ow}{and} \PY{n}{centers} \PY{n}{output}\PY{p}{;}
+         \PY{n}{OPTIONS} \PY{n}{FORMDLIM}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}}\PY{l+s}{\PYZdq{}}\PY{p}{;}	
+         
+         \PY{n}{data} \PY{n}{NorrisData}\PY{p}{;}
+         \PY{n}{infile} \PY{l+s}{\PYZdq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/data/NorrisFrameSAS.txt}\PY{l+s}{\PYZdq{}} \PY{n}{DLM}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{;}
+         \PY{n+nb}{input} \PY{n}{subject} \PY{n}{y} \PY{n}{x}\PY{p}{;}
+         
+         \PY{n}{ODS} \PY{n}{TRACE} \PY{n}{ON}\PY{p}{;}
+         \PY{n}{proc} \PY{n}{glm} \PY{n}{data}\PY{o}{=} \PY{n}{NorrisData}\PY{p}{;}
+         	\PY{n}{model} \PY{n}{y} \PY{o}{=} \PY{n}{x}\PY{p}{;}
+         		\PY{n}{output} \PY{n}{out} \PY{o}{=} \PY{n}{linear\PYZus{}norris}\PY{p}{;}
+         		\PY{n}{ODS} \PY{n}{output} \PY{n}{ParameterEstimates} \PY{o}{=} \PY{n}{pe}\PY{p}{;}
+         		\PY{n}{ODS} \PY{n}{output} \PY{n}{Overallanova} \PY{o}{=} \PY{n}{anova}\PY{p}{;}
+         		\PY{n}{ODS} \PY{n}{output} \PY{n}{fitstatistics} \PY{o}{=} \PY{n}{fs}\PY{p}{;}
+         \PY{n}{run}\PY{p}{;}
+         \PY{n}{ODS} \PY{n}{Trace} \PY{n}{off}\PY{p}{;}
+         
+         \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{pe}\PY{p}{;}
+         	\PY{n}{format} \PY{n}{estimate} \PY{l+m+mf}{20.19}
+         		\PY{n}{stderr} \PY{l+m+mf}{20.19}
+         		\PY{n}{probt} \PY{n}{pvalue20}\PY{o}{.}\PY{l+m+mi}{19}\PY{p}{;}
+         	\PY{n}{run}\PY{p}{;}
+             
+         \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{anova}\PY{p}{;}
+         	\PY{n}{format} \PY{n}{SS} \PY{l+m+mf}{20.19}
+         		\PY{n}{MS} \PY{l+m+mf}{20.19}
+         		\PY{n}{fvalue} \PY{l+m+mf}{20.19}\PY{p}{;}
+         	\PY{n}{run}\PY{p}{;}
+             
+         \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{fs}
+         	\PY{n}{format} 
+         		\PY{n}{rsquare} \PY{l+m+mf}{20.19}
+         		\PY{n}{rootmse} \PY{l+m+mf}{20.19}\PY{p}{;}
+         	\PY{n}{run}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{SB0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZhy{}0.26232307377383600}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SB1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.00211681802045000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SSTDofEstB0} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.23281823431377200}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SSTDofEstB1} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0004297968482232346}\PY{l+s}{\PYZsq{}}
+         \PY{n}{Sresstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.884796396192334000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SRsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.9999937458837110000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.132323680000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4255954.132323680000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{26.61739853230800000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.782864662714941000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SFstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{5436385.54020847000}\PY{l+s}{\PYZsq{}}
+             
+         \PY{n}{SASVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{SB0}\PY{p}{,} \PY{n}{SB1}\PY{p}{,} \PY{n}{SSTDofEstB0}\PY{p}{,} \PY{n}{SSTDofEstB1}\PY{p}{,}\PY{n}{Sresstd}\PY{p}{,}\PY{n}{SRsq}\PY{p}{,}
+                             \PY{n}{SModSS}\PY{p}{,}\PY{n}{SModMSE}\PY{p}{,} \PY{n}{SModSSResid}\PY{p}{,}\PY{n}{SModMSEResid}\PY{p}{,}\PY{n}{SFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.2.6 Testing Python's Precision against NIST, R, and SAS}
+
+
+    I prefer to write functions for any task I have to repeat (and any task
+I can get away with writing a function for). Let's look at the functions
+we'll use to compare the precision of our programs.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{c}{\PYZsh{}def allows us to define a function}
+         \PY{c}{\PYZsh{}cert\PYZus{}val\PYZus{}lengths is the name of the function}
+         \PY{c}{\PYZsh{}it creates an array of the lengths of NIST values for later precision comparisons}
+         \PY{c}{\PYZsh{}the len() function determines the length of a string}
+         \PY{c}{\PYZsh{}the dtype argument here returns an array of integer values}
+         \PY{k}{def} \PY{n+nf}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{CertifiedValuesArray}\PY{p}{)}\PY{p}{:}
+         
+             \PY{c}{\PYZsh{}creates an array of zeros to store the lengths}
+             \PY{n}{CertValLengths} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{CertifiedValuesArray}\PY{p}{)}\PY{p}{,}\PY{n}{dtype}\PY{o}{=}\PY{n+nb}{int}\PY{p}{)}
+             
+             \PY{k}{for} \PY{n}{val} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{CertifiedValuesArray}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 \PY{n}{CertValLengths}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{o}{=} \PY{n+nb}{len}\PY{p}{(}\PY{n}{CertifiedValuesArray}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{)}
+             \PY{k}{return} \PY{n}{CertValLengths}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{c}{\PYZsh{}function requires three values, one I provide (from R, SAS, Py, etc)}
+         \PY{c}{\PYZsh{}another from the NIST certified values}
+         \PY{c}{\PYZsh{}third is the precision we are looking for}
+         \PY{k}{def} \PY{n+nf}{nist\PYZus{}compare}\PY{p}{(}\PY{n}{MyValue}\PY{p}{,} \PY{n}{NISTValue}\PY{p}{,} \PY{n}{CertValLength}\PY{p}{)}\PY{p}{:}
+             
+             \PY{c}{\PYZsh{}converts the value to a list}
+             \PY{n}{MyValueList} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{MyValue}\PY{p}{)}
+             
+             \PY{n}{NISTValueList} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n}{NISTValue}\PY{p}{)}
+             
+             \PY{n}{counter} \PY{o}{=} \PY{l+m+mi}{0}
+             
+             \PY{c}{\PYZsh{}checks to see how similar the values are}
+             \PY{c}{\PYZsh{}the CertValLength allows us to ignore the extraneous precision}
+             \PY{c}{\PYZsh{}added to the arrays by NumPy}
+             \PY{k}{for} \PY{n}{val} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{CertValLength}\PY{p}{)}\PY{p}{:}
+                 \PY{k}{if} \PY{n}{MyValueList}\PY{p}{[}\PY{n}{val}\PY{p}{]} \PY{o}{==} \PY{n}{NISTValueList}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{:}
+                     \PY{n}{counter}\PY{o}{+}\PY{o}{=}\PY{l+m+mi}{1}
+                 \PY{k}{else}\PY{p}{:}
+                     \PY{k}{return} \PY{n}{counter}
+         
+             \PY{c}{\PYZsh{}returns how many values matches}
+             \PY{k}{return} \PY{n}{counter}
+\end{Verbatim}
+
+    We have a way to compare the values, now let's write a function to
+compare the arrays.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}21}]:} \PY{k}{def} \PY{n+nf}{array\PYZus{}compare}\PY{p}{(}\PY{n}{MyArray}\PY{p}{,}\PY{n}{NISTArray}\PY{p}{,}\PY{n}{LabelArray}\PY{p}{)}\PY{p}{:}
+                 
+             \PY{c}{\PYZsh{}create an empty array for value comparisons}
+             \PY{n}{ValMatches} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{NISTArray}\PY{p}{)}\PY{p}{,}\PY{n}{dtype}\PY{o}{=}\PY{n+nb}{int}\PY{p}{)}
+             
+             \PY{c}{\PYZsh{}uses our first function to create the lengths of the certified values}
+             \PY{n}{CertValLengths} \PY{o}{=} \PY{n}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{NISTArray}\PY{p}{)}
+             
+             \PY{k}{for} \PY{n}{val} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{LabelArray}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+                 
+                 \PY{c}{\PYZsh{}compares the values using the previous function}
+                 \PY{n}{ValMatch} \PY{o}{=} \PY{n}{nist\PYZus{}compare}\PY{p}{(}\PY{n}{MyArray}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{,}\PY{n}{NISTArray}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{,}\PY{n}{CertValLengths}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{)}
+                 
+                 \PY{c}{\PYZsh{}prints the comparison and uses our pre\PYZhy{}determined precision}
+                 \PY{k}{print}\PY{p}{(}\PY{n}{LabelArray}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{,} \PY{n}{ValMatch}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{of}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{CertValLengths}\PY{p}{[}\PY{n}{val}\PY{p}{]}\PY{p}{)}
+                 
+                 \PY{c}{\PYZsh{}stores the values in our empty array}
+                 \PY{n}{ValMatches}\PY{p}{[}\PY{n}{val}\PY{p}{]} \PY{o}{=} \PY{n}{ValMatch}
+             
+             \PY{c}{\PYZsh{}returns the precision we were looking for}
+             \PY{k}{return} \PY{n}{ValMatches}    
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}22}]:} \PY{c}{\PYZsh{}create an array of the values we want to compare}
+         \PY{n}{NorrisLabels} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Beta0:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Beta1:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{STDofEstimateB0:}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{STDofEstimateB1}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{resstd:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{R\PYZhy{}sq:}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Model SS:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Model MS:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Model SSResid:}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                    \PY{l+s}{\PYZsq{}}\PY{l+s}{Model MSResid:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{F\PYZhy{}stat:}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    Let's look at how each program's output compared to the NIST Certified
+Values.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}23}]:} \PY{n}{R} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{RVals}\PY{p}{,}\PY{n}{CertVals}\PY{p}{,}\PY{n}{NorrisLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('Beta0:', 15, 'of', 18)
+('Beta1:', 16, 'of', 16)
+('STDofEstimateB0:', 16, 'of', 17)
+('STDofEstimateB1', 18, 'of', 20)
+('resstd:', 16, 'of', 17)
+('R-sq:', 17, 'of', 17)
+('Model SS:', 16, 'of', 16)
+('Model MS:', 16, 'of', 16)
+('Model SSResid:', 15, 'of', 16)
+('Model MSResid:', 14, 'of', 17)
+('F-stat:', 13, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}24}]:} \PY{n}{SAS} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{SASVals}\PY{p}{,}\PY{n}{CertVals}\PY{p}{,}\PY{n}{NorrisLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('Beta0:', 14, 'of', 18)
+('Beta1:', 16, 'of', 16)
+('STDofEstimateB0:', 12, 'of', 17)
+('STDofEstimateB1', 14, 'of', 20)
+('resstd:', 12, 'of', 17)
+('R-sq:', 16, 'of', 17)
+('Model SS:', 15, 'of', 16)
+('Model MS:', 15, 'of', 16)
+('Model SSResid:', 10, 'of', 16)
+('Model MSResid:', 11, 'of', 17)
+('F-stat:', 11, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}25}]:} \PY{n}{Py} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{PyVals}\PY{p}{,}\PY{n}{CertVals}\PY{p}{,}\PY{n}{NorrisLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('Beta0:', 16, 'of', 18)
+('Beta1:', 16, 'of', 16)
+('STDofEstimateB0:', 16, 'of', 17)
+('STDofEstimateB1', 18, 'of', 20)
+('resstd:', 16, 'of', 17)
+('R-sq:', 16, 'of', 17)
+('Model SS:', 16, 'of', 16)
+('Model MS:', 16, 'of', 16)
+('Model SSResid:', 15, 'of', 16)
+('Model MSResid:', 15, 'of', 17)
+('F-stat:', 14, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}26}]:} \PY{n}{R}\PY{p}{,}\PY{n}{SAS}\PY{p}{,}\PY{n}{Py}\PY{p}{,}\PY{n}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{CertVals}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}26}]:} (array([15, 16, 16, 18, 16, 17, 16, 16, 15, 14, 13]),
+          array([14, 16, 12, 14, 12, 16, 15, 15, 10, 11, 11]),
+          array([16, 16, 16, 18, 16, 16, 16, 16, 15, 15, 14]),
+          array([18, 16, 17, 20, 17, 17, 16, 16, 16, 17, 16]))
+\end{Verbatim}
+        
+    We can do as little or as much as we want with this data (such as write
+functions to compare these integers and provide a rating, or determine
+if there are common values, such as SSE, that were rounded and used in
+other calculations yielding less a lower precision).
+
+We can also use this information to pick the program that best matches
+the task at hand. For instance, R or Python did a great job of matching
+18 values of Standard Deviation of Estimate for Beta1, while SAS ony
+matched 14 values. If 18 is your target precision, you could use either
+R or Python.
+
+The important part is that upon visual inspection, Python appears to be
+the closest to the Certified values for Linear Regression, with R close
+behind, and SAS in third place.
+
+    We can use Numpy and matplotlib to verify if my visual inspection is
+correct:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}28}]:} \PY{c}{\PYZsh{}open a figure and add the axes}
+         \PY{n}{hist} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+         \PY{n}{gs} \PY{o}{=} \PY{n}{GridSpec}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{axis} \PY{o}{=} \PY{n}{hist}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{programs}\PY{o}{=}\PY{l+m+mi}{4}
+         \PY{c}{\PYZsh{}create array of bar values}
+         \PY{n}{Matches} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{R}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{SAS}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{Py}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{CertVals}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+         
+         \PY{c}{\PYZsh{}location of bars on plot}
+         \PY{n}{loc} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n}{programs}\PY{p}{)}
+         
+         \PY{n}{bars} \PY{o}{=} \PY{n}{axis}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{n}{loc}\PY{p}{,} \PY{n}{Matches}\PY{p}{)}
+         
+         \PY{n}{axis}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{200}\PY{p}{)}
+         \PY{n}{axis}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of matching values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{axis}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Precision of R,SAS,Py}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{axis}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{loc}\PY{o}{+}\PY{o}{.}\PY{l+m+mi}{35}\PY{p}{)}
+         \PY{n}{XNames} \PY{o}{=} \PY{n}{axis}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{R}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{SAS}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Python}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{NIST}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{n}{axis2} \PY{o}{=} \PY{n}{hist}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+         \PY{n}{bars2} \PY{o}{=} \PY{n}{axis2}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{n}{loc}\PY{p}{,} \PY{n}{Matches}\PY{p}{)}
+         
+         \PY{n}{axis2}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{l+m+mi}{145}\PY{p}{,}\PY{l+m+mi}{200}\PY{p}{)}
+         \PY{n}{axis2}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of matching values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{axis2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Precision of R,SAS,Py}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{axis2}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{loc}\PY{o}{+}\PY{o}{.}\PY{l+m+mi}{35}\PY{p}{)}
+         \PY{n}{XNames} \PY{o}{=} \PY{n}{axis2}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{R}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{SAS}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Python}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{NIST}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{Matches}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}28}]:} [172, 146, 174, 186]
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_143_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Over the 11 values of concern, Python was more precise than R by 2
+decimal places. SAS was 26,28 decimals less precise than R,Py
+(respectively).
+
+    Important Note: This does not mean that SAS miscalculated the values. If
+you return to the SAS output, you will see that each SAS value has
+trailing zeros instead of additonal digits. SAS simply doesn't provide
+the level of precision we sought to completely match the certified
+values in this exercise.
+
+
+    \subsubsection{7.2.7 Plotting Norris data with Mathplotlib}
+
+
+    The NIST graphics aren't as detailed as I would like, but they give us
+something to compare the Python graphics to.
+
+Norris Regression: 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{c}{\PYZsh{}using matplotlib}
+         \PY{c}{\PYZsh{}plots the points}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{NorrisFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}draws the lines}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{y}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{NorrisFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}labels the X axis and Y axis}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Norris x values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Norris y values}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_148_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Looks good. Let's check the residual plot:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{c}{\PYZsh{}residual plot}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{NorrisFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{x}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{NorrisLM}\PY{o}{.}\PY{n}{resid}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}adds a horizontal line at y=0}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{axhline}\PY{p}{(}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Norris x values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals from Linear Regression on NorrisData}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}adds a title}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals vs. x}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_150_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    As much as we can tell, it appears the graphs are the same. We have
+successfully created both of the provided NIST graphics. This is the end
+of the Linear Regression Analysis on the Norris dataset.
+
+
+    \subsection{7.3 ANOVA: SiR Dataset}
+
+
+
+    \subsubsection{7.3.1 Reading in and preparing data from an ASCII webpage}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.1.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}83}]:} \PY{n}{SiRurl} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{http://www.itl.nist.gov/div898/strd/anova/SiRstv.dat}\PY{l+s}{\PYZsq{}}
+         \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/SiRstv.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{wb}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{ul}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{SiRurl}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}84}]:} \PY{n}{SiRData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/SiRstv.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{60}\PY{p}{)}
+         \PY{n}{SiRFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{SiRData}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Resistance}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}85}]:} \PY{n}{SiRFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}85}]:}    Instrument  Resistance
+         0           1    196.3052
+         1           1    196.1240
+         2           1    196.1890
+         3           1    196.2569
+         4           1    196.3403
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}86}]:} \PY{n}{SiRFrame}\PY{o}{.}\PY{n}{tail}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}86}]:}     Instrument  Resistance
+         20           5    196.2119
+         21           5    196.1051
+         22           5    196.1850
+         23           5    196.0052
+         24           5    196.2090
+\end{Verbatim}
+        
+    Data was read in correctly.
+
+
+    \subsubsection{7.3.2 NIST Certified Values}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.2.
+
+    The Certified values we are trying to match can be found at:
+http://www.itl.nist.gov/div898/strd/anova/SiRstv\_cv.html
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{n}{Certresstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.104076068334656}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertRsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.190999039051129}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0511462616000000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0127865654000000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.216636560000000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0108318280000000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{CertFstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.18046237440255}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{SiRCertVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{Certresstd}\PY{p}{,}\PY{n}{CertRsq}\PY{p}{,}\PY{n}{CertModSS}\PY{p}{,}\PY{n}{CertModMSE}\PY{p}{,}
+                                 \PY{n}{CertModSSResid}\PY{p}{,}\PY{n}{CertModMSEResid}\PY{p}{,}\PY{n}{CertFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.3.3 ANOVA values in Python}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.3.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{c}{\PYZsh{}In our formula argument, since we are analyzing Resistence by intstrument}
+         \PY{c}{\PYZsh{}we need to treat instrument as a categorical variable with C()}
+         \PY{n}{SiRLM} \PY{o}{=} \PY{n}{ols}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Resistance \PYZti{} C(Instrument)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{SiRFrame}\PY{p}{)}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}you can chose to use the anova\PYZus{}lm function}
+         \PY{c}{\PYZsh{}SiRANOVA = anova\PYZus{}lm(SiRLM)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}89}]:} \PY{n}{Pyresstd} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{mse\PYZus{}resid}\PY{p}{)}\PY{p}{)}
+         \PY{n}{PyRsq} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{rsquared}\PY{p}{)}
+         \PY{n}{PyModSS} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{ess}\PY{p}{)}
+         \PY{n}{PyModMSE} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{mse\PYZus{}model}\PY{p}{)}
+         \PY{n}{PyModSSResid} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{ssr}\PY{p}{)}
+         \PY{n}{PyModMSEResid} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{mse\PYZus{}resid}\PY{p}{)}
+         \PY{n}{PyFstat} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{fvalue}\PY{p}{)}
+         
+         \PY{n}{SiRPyVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{Pyresstd}\PY{p}{,} \PY{n}{PyRsq}\PY{p}{,} \PY{n}{PyModSS}\PY{p}{,} \PY{n}{PyModMSE}\PY{p}{,}\PY{n}{PyModSSResid}\PY{p}{,}
+                               \PY{n}{PyModMSEResid}\PY{p}{,}\PY{n}{PyFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.3.4 ANOVA values in R}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.4.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{SiRFrame}\PY{o}{.}\PY{n}{to\PYZus{}csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/data/SiRFrame.txt}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{k+kn}{import} \PY{n+nn}{rpy2}
+         \PY{o}{\PYZpc{}}\PY{k}{load\PYZus{}ext} \PY{n}{rpy2}\PY{o}{.}\PY{n}{ipython}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+The rpy2.ipython extension is already loaded. To reload it, use:
+  \%reload\_ext rpy2.ipython
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+         \PY{c}{\PYZsh{}read in data}
+         \PY{n}{setwd}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+         \PY{n}{SiR} \PY{o}{=} \PY{n}{read}\PY{o}{.}\PY{n}{csv}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/SiRFrame.txt}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{header}\PY{o}{=}\PY{n}{T}\PY{p}{)}\PY{p}{;}
+         \PY{n}{SiRFrame} \PY{o}{=} \PY{k}{as}\PY{o}{.}\PY{n}{data}\PY{o}{.}\PY{n}{frame}\PY{p}{(}\PY{n}{SiR}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{head}\PY{p}{(}\PY{n}{SiRFrame}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}93}]:}    X  Instrument  Resistance
+         0  0           1    196.3052
+         1  1           1    196.1240
+         2  2           1    196.1890
+         3  3           1    196.2569
+         4  4           1    196.3403
+         5  5           2    196.3042
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{o}{\PYZpc{}}\PY{k}{R} \PY{n}{tail}\PY{p}{(}\PY{n}{SiRFrame}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}94}]:}     X  Instrument  Resistance
+         0  19           4    195.9885
+         1  20           5    196.2119
+         2  21           5    196.1051
+         3  22           5    196.1850
+         4  23           5    196.0052
+         5  24           5    196.2090
+\end{Verbatim}
+        
+    Data was read in correctly.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}95}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+         \PY{c}{\PYZsh{}analysis in R}
+         \PY{n}{SiRFrame}\PY{err}{\PYZdl{}}\PY{n}{Instrument} \PY{o}{=} \PY{n}{factor}\PY{p}{(}\PY{n}{SiRFrame}\PY{err}{\PYZdl{}}\PY{n}{Instrument}\PY{p}{)}\PY{p}{;}
+         \PY{n}{SiRANOVA} \PY{o}{=} \PY{n}{aov}\PY{p}{(}\PY{n}{Resistance} \PY{o}{\PYZti{}} \PY{n}{Instrument}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{SiRFrame}\PY{p}{)}\PY{p}{;}
+         \PY{n}{SiRLM} \PY{o}{=} \PY{n}{lm}\PY{p}{(}\PY{n}{Resistance} \PY{o}{\PYZti{}} \PY{n}{Instrument}\PY{p}{,} \PY{n}{data}\PY{o}{=}\PY{n}{SiRFrame}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}192}]:} \PY{o}{\PYZpc{}\PYZpc{}}\PY{k}{R}
+          \PY{c}{\PYZsh{}obtaining precise numbers in R}
+          \PY{k}{print}\PY{p}{(}\PY{n}{summary}\PY{p}{(}\PY{n}{SiRANOVA}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=}\PY{l+m+mi}{17}\PY{p}{)}\PY{p}{;}
+          \PY{k}{print}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{deviance}\PY{p}{(}\PY{n}{SiRANOVA}\PY{p}{)}\PY{o}{/}\PY{n}{df}\PY{o}{.}\PY{n}{residual}\PY{p}{(}\PY{n}{SiRANOVA}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=} \PY{l+m+mi}{17}\PY{p}{)}\PY{p}{;}
+          \PY{k}{print}\PY{p}{(}\PY{n}{summary}\PY{p}{(}\PY{n}{SiRLM}\PY{p}{)}\PY{p}{,} \PY{n}{digits} \PY{o}{=}\PY{l+m+mi}{17}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}33}]:} \PY{n}{SiRRresstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.10407606833466272189}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRRsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.19099903905112250446}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.051146261600009186588}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.012786565400002294912}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.216636560000027678097}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.010831828000001384252}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRRFstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.1804600000000000648}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{SiRRVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{SiRRresstd}\PY{p}{,} \PY{n}{SiRRRsq}\PY{p}{,} \PY{n}{SiRRModSS}\PY{p}{,} \PY{n}{SiRRModMSE}\PY{p}{,}
+                              \PY{n}{SiRRModSSResid}\PY{p}{,}\PY{n}{SiRRModMSEResid}\PY{p}{,}\PY{n}{SiRRFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.3.5 ANOVA values in SAS}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} \PY{n}{OPTIONS} \PY{n}{NODATE} \PY{n}{NONUMBER} \PY{n}{CENTER} \PY{n}{LS}\PY{o}{=}\PY{l+m+mi}{160}\PY{p}{;}
+       \PY{o}{*}\PY{n}{Removes} \PY{n}{the} \PY{n}{header} \PY{n}{information} \PY{o+ow}{and} \PY{n}{centers} \PY{n}{output}\PY{p}{;}
+       \PY{n}{OPTIONS} \PY{n}{FORMDLIM}\PY{o}{=}\PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZti{}}\PY{l+s}{\PYZdq{}}\PY{p}{;}	
+       
+       \PY{n}{data} \PY{n}{SiRData}\PY{p}{;}
+       \PY{n}{infile} \PY{l+s}{\PYZdq{}}\PY{l+s}{C:/Users/flunk\PYZus{}000/Desktop/CalPoly/IPythonNotebook/SeniorProject/data/SiRFrameSAS.txt}\PY{l+s}{\PYZdq{}} \PY{n}{DLM}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{;}
+       \PY{n+nb}{input} \PY{n}{Instrument} \PY{err}{\PYZdl{}} \PY{n}{Resistance}\PY{p}{;}
+       \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{SiRData}\PY{p}{;}
+       \PY{n}{run}\PY{p}{;}
+       
+       \PY{n}{proc} \PY{n}{glm} \PY{n}{data}\PY{o}{=} \PY{n}{SiRData}\PY{p}{;}
+       	\PY{k}{class} \PY{n+nc}{Instrument}\PY{p}{;}
+       	\PY{n}{model} \PY{n}{Resistance} \PY{o}{=} \PY{n}{Instrument}\PY{p}{;}
+       		\PY{n}{ODS} \PY{n}{output} \PY{n}{Overallanova} \PY{o}{=} \PY{n}{SiRanova}\PY{p}{;}
+       		\PY{n}{ODS} \PY{n}{output} \PY{n}{fitstatistics} \PY{o}{=} \PY{n}{SiRfs}\PY{p}{;}
+       \PY{n}{run}\PY{p}{;}
+       
+       \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{SiRanova}\PY{p}{;}
+       	\PY{n}{format} \PY{n}{SS} \PY{l+m+mf}{17.16}
+       		\PY{n}{MS} \PY{l+m+mf}{17.16}
+       		\PY{n}{fvalue} \PY{l+m+mf}{17.16}\PY{p}{;}
+       	\PY{n}{run}\PY{p}{;}
+           
+       \PY{n}{proc} \PY{k}{print} \PY{n}{data}\PY{o}{=}\PY{n}{SiRfs}\PY{p}{;}
+       	\PY{n}{format} \PY{n}{rsquare} \PY{l+m+mf}{17.16}
+       		\PY{n}{rootmse} \PY{l+m+mf}{17.16}\PY{p}{;}
+       	\PY{n}{run}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}34}]:} \PY{n}{SiRSASresstd} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.1040760683346600}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASRsq} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.1909990390511160}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASModSS} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0511462615999996}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASModMSE} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0127865653999999}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASModSSResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.2166365600000160}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASModMSEResid} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{0.0108318280000008}\PY{l+s}{\PYZsq{}}
+         \PY{n}{SiRSASFstat} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{1.180462374402440}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{SiRSASVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{SiRSASresstd}\PY{p}{,}\PY{n}{SiRSASRsq}\PY{p}{,}\PY{n}{SiRSASModSS}\PY{p}{,}\PY{n}{SiRSASModMSE}
+                             \PY{p}{,}\PY{n}{SiRSASModSSResid}\PY{p}{,}\PY{n}{SiRSASModMSEResid}\PY{p}{,}\PY{n}{SiRSASFstat}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.3.6 Testing Python's Precision against NIST, R, and SAS}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.6.
+
+    Like 7.2.6, we need a label array to print out the values of interest:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}96}]:} \PY{n}{SiRLabels} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{resstd:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{R\PYZhy{}sq:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Model SS:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Model MS:}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                                   \PY{l+s}{\PYZsq{}}\PY{l+s}{Model SSResid:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Model MSResid:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{F\PYZhy{}stat:}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}97}]:} \PY{n}{SiRR} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{SiRRVals}\PY{p}{,}\PY{n}{SiRCertVals}\PY{p}{,}\PY{n}{SiRLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('resstd:', 15, 'of', 17)
+('R-sq:', 16, 'of', 17)
+('Model SS:', 16, 'of', 18)
+('Model MS:', 16, 'of', 18)
+('Model SSResid:', 15, 'of', 17)
+('Model MSResid:', 16, 'of', 18)
+('F-stat:', 7, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}98}]:} \PY{n}{SiRSAS} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{SiRSASVals}\PY{p}{,}\PY{n}{SiRCertVals}\PY{p}{,}\PY{n}{SiRLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('resstd:', 15, 'of', 17)
+('R-sq:', 15, 'of', 17)
+('Model SS:', 11, 'of', 18)
+('Model MS:', 11, 'of', 18)
+('Model SSResid:', 15, 'of', 17)
+('Model MSResid:', 17, 'of', 18)
+('F-stat:', 14, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}99}]:} \PY{n}{SiRPy} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{SiRPyVals}\PY{p}{,}\PY{n}{SiRCertVals}\PY{p}{,}\PY{n}{SiRLabels}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('resstd:', 15, 'of', 17)
+('R-sq:', 15, 'of', 17)
+('Model SS:', 11, 'of', 18)
+('Model MS:', 11, 'of', 18)
+('Model SSResid:', 15, 'of', 17)
+('Model MSResid:', 17, 'of', 18)
+('F-stat:', 14, 'of', 16)
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}100}]:} \PY{n}{SiRR}\PY{p}{,} \PY{n}{SiRSAS}\PY{p}{,} \PY{n}{SiRPy}\PY{p}{,} \PY{n}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{SiRCertVals}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}100}]:} (array([15, 16, 16, 16, 15, 16,  7]),
+           array([15, 15, 11, 11, 15, 17, 14]),
+           array([15, 15, 11, 11, 15, 17, 14]),
+           array([17, 17, 18, 18, 17, 18, 16]))
+\end{Verbatim}
+        
+    With the exception of rounding the F-statistics early, R appears to have
+handled this dataset well. Going back and examining the array values,
+you can see R has the trailing zeros that match the ceritified values
+while Python and SAS did not. Interestingly enough, extracting large
+enough R values added additional digits after 4 or 5 trailing zeros. Did
+R caluculate those digits or were they randomly produced since we forced
+R to provide the extract precision?
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}101}]:} \PY{c}{\PYZsh{}open a figure and add the axes}
+          \PY{n}{SiRhist} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{16}\PY{p}{,}\PY{l+m+mi}{4}\PY{p}{)}\PY{p}{)}
+          \PY{n}{gs}\PY{o}{=}\PY{n}{GridSpec}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{2}\PY{p}{)}
+          \PY{n}{SiRaxis} \PY{o}{=} \PY{n}{SiRhist}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{SiRprograms}\PY{o}{=}\PY{l+m+mi}{4}
+          \PY{c}{\PYZsh{}create array of bar values}
+          \PY{n}{SiRMatches} \PY{o}{=} \PY{p}{[}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{SiRR}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{SiRSAS}\PY{p}{)}\PY{p}{,}\PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{SiRPy}\PY{p}{)}\PY{p}{,}
+                        \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{n}{cert\PYZus{}val\PYZus{}lengths}\PY{p}{(}\PY{n}{SiRCertVals}\PY{p}{)}\PY{p}{)}\PY{p}{]}
+          
+          \PY{c}{\PYZsh{}location of bars on plot}
+          \PY{n}{SiRloc} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{n}{SiRprograms}\PY{p}{)}
+          
+          \PY{n}{SiRbars} \PY{o}{=} \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{n}{SiRloc}\PY{p}{,} \PY{n}{SiRMatches}\PY{p}{)}
+          
+          \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{130}\PY{p}{)}
+          \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of matching values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Precision of R,SAS,Py}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{SiRloc}\PY{o}{+}\PY{o}{.}\PY{l+m+mi}{35}\PY{p}{)}
+          \PY{n}{SiRXNames} \PY{o}{=} \PY{n}{SiRaxis}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{R}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{SAS}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Python}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{NIST}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{SiRaxis2} \PY{o}{=} \PY{n}{SiRhist}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{n}{gs}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          \PY{n}{SiRbars2} \PY{o}{=} \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{bar}\PY{p}{(}\PY{n}{SiRloc}\PY{p}{,} \PY{n}{SiRMatches}\PY{p}{)}
+          \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{l+m+mi}{95}\PY{p}{,}\PY{l+m+mi}{125}\PY{p}{)}
+          \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of matching values}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Precision of R,SAS,Py}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{SiRloc}\PY{o}{+}\PY{o}{.}\PY{l+m+mi}{35}\PY{p}{)}
+          \PY{n}{SiRXNames} \PY{o}{=} \PY{n}{SiRaxis2}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{R}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{SAS}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{l+s}{\PYZsq{}}\PY{l+s}{Python}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{NIST}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{SiRMatches}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}101}]:} [101, 98, 98, 121]
+\end{Verbatim}
+        
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_191_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Over the 7 values of concern, R was more precise than SAS and Python by
+2 decimal places. The programs appear to have about the same precision
+overall, but this is due to big mismatches on some values. R rounded the
+F-stat early (7 decimal places before SAS and Python), yet R was 5
+decimal places more precise than SAS and Python for calculating Model SS
+and Model MSE.
+
+
+    \subsubsection{7.3.7 Plotting SiR data with Seaborn}
+
+
+    The NIST graphics aren't as detailed as I would like, but they give us
+something to compare the Python graphics to. This time we will Seaborn
+to try to match the NIST plots.
+
+SiR ANOVA: 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}102}]:} \PY{c}{\PYZsh{}plot with seaborns linear model plot}
+          \PY{c}{\PYZsh{}use the column names are the first and second argument}
+          \PY{c}{\PYZsh{}and the data frame as the thid argument}
+          \PY{n}{SiRANOVA} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{lmplot}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Resistance}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{data}\PY{o}{=}\PY{n}{SiRFrame}\PY{p}{,}
+                     \PY{n}{ci}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{,} \PY{n}{hue}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fit\PYZus{}reg}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+          \PY{n}{SiRANOVA}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{title} \PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Resistivity vs Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRANOVA}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Resistivity,ohm*cm}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_195_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    SiR Residuals vs.~Instrument: 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}101}]:} \PY{n}{SiRPlot} \PY{o}{=} \PY{n}{sns}\PY{o}{.}\PY{n}{regplot}\PY{p}{(}\PY{n}{SiRFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{SiRLM}\PY{o}{.}\PY{n}{resid}\PY{p}{,} \PY{n}{ci}\PY{o}{=}\PY{n+nb+bp}{False}\PY{p}{)}
+          \PY{n}{SiRPlot}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{ylabel} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{SiRPlot}\PY{o}{.}\PY{n}{set}\PY{p}{(}\PY{n}{title}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals vs Instrument}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_197_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    In sections 7.2 and 7.3 we have determined Python can perform as well as
+SAS and R on these NIST data sets.
+
+
+    \subsection{7.4 Univariate Summary Statistics: PiDigits}
+
+
+
+    \subsubsection{7.4.1 Reading in and preparing data from an ASCII webpage}
+
+
+    For a detailed explanation of this process, refer to Secton 7.2.1.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}103}]:} \PY{n}{PiUrl} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{http://www.itl.nist.gov/div898/strd/univ/data/PiDigits.dat}\PY{l+s}{\PYZsq{}}
+          \PY{n+nb}{open}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/Pi.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{wb}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{write}\PY{p}{(}\PY{n}{ul}\PY{o}{.}\PY{n}{urlopen}\PY{p}{(}\PY{n}{PiUrl}\PY{p}{)}\PY{o}{.}\PY{n}{read}\PY{p}{(}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}104}]:} \PY{n}{PiData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/Pi.dat}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{60}\PY{p}{,}\PY{n}{dtype}\PY{o}{=}\PY{n+nb}{int}\PY{p}{)}
+          \PY{n}{PiFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{PiData}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}105}]:} \PY{n}{PiFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}105}]:}    0
+          0  3
+          1  1
+          2  4
+          3  1
+          4  5
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}106}]:} \PY{n}{PiFrame}\PY{o}{.}\PY{n}{tail}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}106}]:}       0
+          4995  6
+          4996  0
+          4997  4
+          4998  7
+          4999  2
+\end{Verbatim}
+        
+    Data looks good. I think we can all agree that Pi starts with
+31415\ldots{}
+
+
+    \subsubsection{7.4.2 NIST Certified Values}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.2.
+
+    The Certified values we are trying to match can be found at:
+http://www.itl.nist.gov/div898/strd/univ/certvalues/pidigits.html
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}98}]:} \PY{n}{PiMean} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{4.53480000000000}\PY{l+s}{\PYZsq{}}
+         \PY{n}{PiSigma} \PY{o}{=} \PY{l+s}{\PYZsq{}}\PY{l+s}{2.86733906028871}\PY{l+s}{\PYZsq{}}
+         
+         \PY{n}{PiCertVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{PiMean}\PY{p}{,}\PY{n}{PiSigma}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.4.3 Univariate Summary Statistics in Python}
+
+
+    NIST only provides the mean and standard deviation for comparison. I'm
+going to show you a couple things that might be helpful as well as
+extract the values for comparison.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}99}]:} \PY{c}{\PYZsh{}dont forget to check dir(PiFrame) to see what a DataFrame can offer}
+         \PY{n}{PiFrame}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}99}]:}                  0
+         count  5000.000000
+         mean      4.534800
+         std       2.867339
+         min       0.000000
+         25\%       2.000000
+         50\%       5.000000
+         75\%       7.000000
+         max       9.000000
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}100}]:} \PY{n}{PiFrame}\PY{o}{.}\PY{n}{hist}\PY{p}{(}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_214_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Back to the desired values. As you can see, the DataFrame has the values
+we want already built in. Since we desire a more precise value for this
+exercise, the simplest way is to use NumPy.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}399}]:} \PY{n}{PyPiMean} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{PiData}\PY{p}{)}\PY{p}{)}
+          \PY{n}{PyPistd} \PY{o}{=} \PY{n+nb}{repr}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{n}{PiData}\PY{p}{)}\PY{p}{)}
+          
+          \PY{n}{PyPiVals} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{n}{PyPiMean}\PY{p}{,} \PY{n}{PyPistd}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsubsection{7.4.4 Testing Python's Precision against NIST values}
+
+
+    For a detailed explanation of this process, refer to Section 7.2.6.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}394}]:} \PY{c}{\PYZsh{}specify titles for the output values}
+          \PY{n}{PiLabelArray} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Mean:}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Sigma:}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}395}]:} \PY{n}{PiPy} \PY{o}{=} \PY{n}{array\PYZus{}compare}\PY{p}{(}\PY{n}{PyPiVals}\PY{p}{,}\PY{n}{PiCertVals}\PY{p}{,}\PY{n}{PiLabelArray}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('Mean:', 5, 'of', 16)
+('Sigma:', 5, 'of', 16)
+    \end{Verbatim}
+
+    That's unforunate\ldots{} Let's look at the values and see if we feel
+our previous comparison method might be a bit misleading in this
+instance.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}401}]:} \PY{k}{print}\PY{p}{(}\PY{n}{PyPiVals}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{PiCertVals}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+4.5347999999999997
+4.53480000000000
+    \end{Verbatim}
+
+    These means are essentially the same. Not nearly as bad as matching 5 of
+16 digits would lead us to believe.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}403}]:} \PY{k}{print}\PY{p}{(}\PY{n}{PyPiVals}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{PiCertVals}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+2.8670523120445486
+2.86733906028871
+    \end{Verbatim}
+
+    The NumPy standard deviation is way off. Lucky for us, we still have a
+Pandas DataFrame all set to go. Here's a work around:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}416}]:} \PY{n}{PyMean} \PY{o}{=} \PY{n}{PiFrame}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}17.14f}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{PyMean}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{PiCertVals}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+          
+          \PY{n}{PySTD} \PY{o}{=} \PY{n}{PiFrame}\PY{o}{.}\PY{n}{std}\PY{p}{(}\PY{p}{)}
+          \PY{k}{print} \PY{l+s}{\PYZsq{}}\PY{l+s+si}{\PYZpc{}17.14f}\PY{l+s}{\PYZsq{}} \PY{o}{\PYZpc{}} \PY{p}{(}\PY{n}{PySTD}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{n}{PiCertVals}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+4.53480000000000
+4.53480000000000
+ 2.86733906028871
+2.86733906028871
+    \end{Verbatim}
+
+    Success! This method might be a few more lines of code, but it appears
+to be a more precise approach. 
+
+
+    \section{Chapter 8 Streaming Data in the IPython Notebook}
+
+
+    An interest in working with Dynamic data is what brought Dr.~Doi and I
+together on this project. Dynamic data is data that is always changing.
+Some data sets might change only a few times in a 5 minute interval,
+others might change 100 times a second. The fascinating thing about
+dynamic data is any time it is analyzed, the analysis is potentionally
+behind the data. Consider LADWP's (Los Angeles Department of Water and
+Power) water data. In 2013, the United States Census Bureau estimated
+the population of the city of Los Angeles was about 3.9 millon people.
+With 3.9 million people, it seems impossible that the water consumption
+in Los Angeles could ever stop. This implys that as we analyze water
+consumption in LA, we are immediately missing new data. In the future, I
+intend to use dynamic environmental data streams to provide people with
+accurate, analyzed in real time, information that enables them to make
+choices that best support sustainability in their area.
+
+
+    \subsection{8.1 Python Packages for Streaming and the Import Cell}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{k+kn}{import} \PY{n+nn}{requests}
+        \PY{k+kn}{import} \PY{n+nn}{json}
+        \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits.basemap} \PY{k+kn}{import} \PY{n}{Basemap}
+        \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+        \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+        \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+\end{Verbatim}
+
+
+    \subsection{8.2 Streaming Data from USA.gov}
+
+
+    USA.gov describes the data as, ``We provide a raw pub/sub feed of data
+created any time anyone clicks on a 1.USA.gov URL. The pub/sub endpoint
+responds to http requests for any 1.USA.gov URL and returns a stream of
+JSON entries, one per line, that represent real-time clicks.''
+
+A few years ago USA.gov ``held a nationwide 1.USA.gov Hack Day\ldots{}
+to encourage people to explore the 1.USA.gov data.'' The projects and
+code resulting from this are more sophicated than what we're doing here
+and can be found at:
+http://www.usa.gov/About/developer-resources/1usagov.shtml
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{url} \PY{o}{=} \PY{l+s}{\PYZdq{}}\PY{l+s}{http://developer.usa.gov/1usagov}\PY{l+s}{\PYZdq{}}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}87}]:} \PY{c}{\PYZsh{}url argument is the live datastream}
+         \PY{n}{r} \PY{o}{=} \PY{n}{requests}\PY{o}{.}\PY{n}{get}\PY{p}{(}\PY{n}{url}\PY{p}{,} \PY{n}{stream}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}after grabbing n data values, the datastream stops}
+         \PY{n}{n} \PY{o}{=} \PY{l+m+mi}{500}
+         \PY{n}{data} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+         
+         \PY{c}{\PYZsh{}looks at each line of the request individually and adds it to the list \PYZdq{}data\PYZdq{}}
+         \PY{k}{for} \PY{n}{i}\PY{p}{,} \PY{n}{line} \PY{o+ow}{in} \PY{n+nb}{enumerate}\PY{p}{(}\PY{n}{r}\PY{o}{.}\PY{n}{iter\PYZus{}lines}\PY{p}{(}\PY{p}{)}\PY{p}{)}\PY{p}{:}
+             \PY{n}{data}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{line}\PY{p}{)}
+             
+             \PY{c}{\PYZsh{}this is a dirty little trick that should be avoided in larger functions and }
+             \PY{c}{\PYZsh{}programs, but works great for this quick line fectching function}
+             \PY{k}{if} \PY{n}{i} \PY{o}{\PYZgt{}} \PY{n}{n}\PY{p}{:}
+                 \PY{k}{break}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}88}]:} \PY{c}{\PYZsh{}load the json lines from the list}
+         \PY{n}{jdata} \PY{o}{=} \PY{p}{[}\PY{n}{json}\PY{o}{.}\PY{n}{loads}\PY{p}{(}\PY{n}{item}\PY{p}{)} \PY{k}{for} \PY{n}{item} \PY{o+ow}{in} \PY{n}{data}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}89}]:} \PY{c}{\PYZsh{}create a DataFrame}
+         \PY{n}{USAGovFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{jdata}\PY{p}{)}
+\end{Verbatim}
+
+    We built a DataFrame from USAGov's live stream. Let's take a peek at it
+and see what we ended up with.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}90}]:} \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}90}]:}    \_heartbeat\_                            \_id  \textbackslash{}
+         0          NaN  543ae232-002b9-0416e-cf1cf10a   
+         1          NaN  543ae232-003ac-038db-301cf10a   
+         2          NaN  543ae233-00395-07c0e-361cf10a   
+         3          NaN  543ae234-00165-07334-261cf10a   
+         4          NaN  543ae234-00364-06587-2a1cf10a   
+         
+                                                            a               al   c  \textbackslash{}
+         0  Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKi\ldots  es-419,es;q=0.8  MX   
+         1  Mozilla/5.0 (iPhone; CPU iPhone OS 7\_1\_2 like \ldots            en-us  US   
+         2  Mozilla/5.0 (iPhone; CPU iPhone OS 8\_0\_2 like \ldots            fr-fr  FR   
+         3  Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKi\ldots   en-US,en;q=0.8  US   
+         4  Mozilla/5.0 (Macintosh; Intel Mac OS X 10\_9\_5)\ldots            es-es  ES   
+         
+            ckw           cy   dp        g   gr \ldots           hc         hh   kw  \textbackslash{}
+         0  NaN          NaN  NaN    15r91  NaN \ldots   1365701422       j.mp  NaN   
+         1  NaN       Ponder  NaN  1v02m1T   TX \ldots   1413143626     ift.tt  NaN   
+         2  NaN          NaN  NaN   ZzdKp8  NaN \ldots   1413082406  1.usa.gov  NaN   
+         3  NaN  Spirit Lake  NaN  1qfk3VH   IA \ldots   1413123177  1.usa.gov  NaN   
+         4  NaN         Vigo  NaN    K6Cor   58 \ldots   1394114329  1.usa.gov  NaN   
+         
+                       l                   ll nk                       r           t  \textbackslash{}
+         0     pontifier      [19.43, -99.13]  0                  direct  1413145138   
+         1         ifttt  [33.1884, -97.2889]  0                  direct  1413145138   
+         2  tweetdeckapi        [48.86, 2.35]  0  http://t.co/tZd7gGVAXC  1413145139   
+         3     theusnavy  [43.4216, -95.0932]  1                  direct  1413145140   
+         4     anonymous   [42.2328, -8.7226]  0                  direct  1413145140   
+         
+                         tz                                                  u  
+         0                                                 http://www.nsa.gov/  
+         1  America/Chicago  http://alerts.weather.gov/cap/wwacapget.php?x=\ldots  
+         2     Europe/Paris  http://earthobservatory.nasa.gov/IOTD/view.php\ldots  
+         3  America/Chicago  http://www.navy.mil/submit/display.asp?story\_i\ldots  
+         4    Europe/Madrid  http://www.fda.gov/ForConsumers/ByAudience/For\ldots  
+         
+         [5 rows x 21 columns]
+\end{Verbatim}
+        
+    After looking at the descriptions of the variables provided from
+1USA.gov, I don't know what I would do with several of them. Let's
+reduce the DataFrame to variables we are interested in playing with.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}91}]:} \PY{c}{\PYZsh{}drop all the columns that I don\PYZsq{}t know anything about}
+         \PY{c}{\PYZsh{}ckw and dp aren\PYZsq{}t consistently collected, especially with smaller sample sizes}
+         \PY{c}{\PYZsh{}this will check for them and drop them if they are present}
+         \PY{k}{if} \PY{l+s}{\PYZsq{}}\PY{l+s}{ckw}\PY{l+s}{\PYZsq{}} \PY{o+ow}{and} \PY{l+s}{\PYZsq{}}\PY{l+s}{dp}\PY{l+s}{\PYZsq{}} \PY{o+ow}{in} \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{columns}\PY{p}{:}
+             \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}heartbeat\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}id}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{al}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{ckw}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{nk}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{kw}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{hc}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{dp}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+         \PY{k}{else}\PY{p}{:}
+             \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}heartbeat\PYZus{}}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZus{}id}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{al}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{nk}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{g}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{h}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{kw}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{hc}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{inplace}\PY{o}{=}\PY{n+nb+bp}{True}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}92}]:} \PY{c}{\PYZsh{}add user friendly names for the remaining variables}
+         \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{User\PYZus{}Agent}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Country\PYZus{}Code}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Geo\PYZus{}city\PYZus{}name}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{Geo\PYZus{}Region}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Short\PYZus{}url\PYZus{}Cname}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Encoding\PYZus{}user\PYZus{}login}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{[Latitude,Longitude]}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Referring\PYZus{}URL}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Timestamp}\PY{l+s}{\PYZsq{}}\PY{p}{,}
+                              \PY{l+s}{\PYZsq{}}\PY{l+s}{Timezone}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Long\PYZus{}URL}\PY{l+s}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}93}]:} \PY{c}{\PYZsh{}look at the new DataFrame}
+         \PY{n}{USAGovFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}93}]:}                                           User\_Agent Country\_Code  \textbackslash{}
+         0  Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKi\ldots           MX   
+         1  Mozilla/5.0 (iPhone; CPU iPhone OS 7\_1\_2 like \ldots           US   
+         2  Mozilla/5.0 (iPhone; CPU iPhone OS 8\_0\_2 like \ldots           FR   
+         3  Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKi\ldots           US   
+         4  Mozilla/5.0 (Macintosh; Intel Mac OS X 10\_9\_5)\ldots           ES   
+         
+           Geo\_city\_name Geo\_Region Short\_url\_Cname Encoding\_user\_login  \textbackslash{}
+         0           NaN        NaN            j.mp           pontifier   
+         1        Ponder         TX          ift.tt               ifttt   
+         2           NaN        NaN       1.usa.gov        tweetdeckapi   
+         3   Spirit Lake         IA       1.usa.gov           theusnavy   
+         4          Vigo         58       1.usa.gov           anonymous   
+         
+           [Latitude,Longitude]           Referring\_URL   Timestamp         Timezone  \textbackslash{}
+         0      [19.43, -99.13]                  direct  1413145138                    
+         1  [33.1884, -97.2889]                  direct  1413145138  America/Chicago   
+         2        [48.86, 2.35]  http://t.co/tZd7gGVAXC  1413145139     Europe/Paris   
+         3  [43.4216, -95.0932]                  direct  1413145140  America/Chicago   
+         4   [42.2328, -8.7226]                  direct  1413145140    Europe/Madrid   
+         
+                                                     Long\_URL  
+         0                                http://www.nsa.gov/  
+         1  http://alerts.weather.gov/cap/wwacapget.php?x=\ldots  
+         2  http://earthobservatory.nasa.gov/IOTD/view.php\ldots  
+         3  http://www.navy.mil/submit/display.asp?story\_i\ldots  
+         4  http://www.fda.gov/ForConsumers/ByAudience/For\ldots  
+\end{Verbatim}
+        
+
+    \subsection{8.3 Plotting on a world map}
+
+
+    With the DataFrame we have, let's plot all the coordinates on a world
+map to get an idea of who just visited .gov websites when we excuted the
+code above.
+
+    First, we need to learn about the coordinates in the Latitude/Longitude
+column.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}101}]:} \PY{c}{\PYZsh{}check the type of data at the first index}
+          \PY{n+nb}{type}\PY{p}{(}\PY{n}{USAGovFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{[Latitude,Longitude]}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}101}]:} list
+\end{Verbatim}
+        
+    I tried to zip and unpack this data the short way, but I received a
+``too many values'' error. As you might have figured out by now, it's
+time for another function to help us with this process.
+
+    The goal is to pass the column of the DataFrame to a function that will
+separate the latitude and the longitude into their own variables in
+order to plot them as x and y variables on a world map.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}94}]:} \PY{c}{\PYZsh{}function for unpacking a list in each row of a column into two separate lists}
+         \PY{k}{def} \PY{n+nf}{lat\PYZus{}lon}\PY{p}{(}\PY{n}{column}\PY{p}{)}\PY{p}{:}
+             
+             \PY{c}{\PYZsh{}create two empty lists}
+             \PY{n}{lat}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+             \PY{n}{lon}\PY{o}{=}\PY{p}{[}\PY{p}{]}
+             
+             \PY{c}{\PYZsh{}at each row in the column, add first index to lat, second to lon}
+             \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n}{column}\PY{p}{:}
+                 \PY{n}{lat}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+                 \PY{n}{lon}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{i}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+                 
+             \PY{c}{\PYZsh{}return the new lists}
+             \PY{k}{return} \PY{n}{lat}\PY{p}{,}\PY{n}{lon}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}97}]:} \PY{c}{\PYZsh{}open a larger figure so we have a better since of the global web traffic}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{} lon\PYZus{}0 is central longitude of projection.}
+         \PY{c}{\PYZsh{} resolution = \PYZsq{}c\PYZsq{} means use crude resolution coastlines.}
+         \PY{n+nb}{map} \PY{o}{=} \PY{n}{Basemap}\PY{p}{(}\PY{n}{projection}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{kav7}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{lon\PYZus{}0}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{,}\PY{n}{resolution}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{c}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}bluemarble is a built in function to basemap }
+         \PY{n+nb}{map}\PY{o}{.}\PY{n}{bluemarble}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}drop the NaN values from the data frame}
+         \PY{n}{coords} \PY{o}{=} \PY{n}{USAGovFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{[Latitude,Longitude]}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}run the function from the cell above}
+         \PY{n}{lat}\PY{p}{,} \PY{n}{lon} \PY{o}{=} \PY{n}{lat\PYZus{}lon}\PY{p}{(}\PY{n}{coords}\PY{p}{)}
+         
+         \PY{c}{\PYZsh{}plot the points on the bluemarble basemap}
+         \PY{c}{\PYZsh{} \PYZsq{}.\PYZsq{} is the marker type, c is the color}
+         \PY{n}{x}\PY{p}{,}\PY{n}{y} \PY{o}{=} \PY{n+nb}{map}\PY{p}{(}\PY{n}{lon}\PY{p}{,} \PY{n}{lat}\PY{p}{)}
+         \PY{n+nb}{map}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{p}{,}\PY{n}{y}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{.}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{12}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{USA.Gov Site Traffic}\PY{l+s}{\PYZdq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_251_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    
+
+
+    \section{Chapter 9 Time Series, More with Data Frames, and Advanced Plotting in
+the IPython Notebook}
+
+
+
+    \subsection{9.1 Pendulum Data}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}103}]:} \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k+kn}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k+kn}{as} \PY{n+nn}{pd}
+          \PY{k+kn}{import} \PY{n+nn}{math}
+          \PY{o}{\PYZpc{}}\PY{k}{matplotlib} \PY{n}{inline}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib.pyplot} \PY{k+kn}{as} \PY{n+nn}{plt}
+          \PY{k+kn}{import} \PY{n+nn}{pylab} \PY{k+kn}{as} \PY{n+nn}{pl}
+\end{Verbatim}
+
+    With a pendulum and a web camera, Dr.~Hughes used the Matlab routine
+pendulum\_data.m to obtain the pendulum dataset we will be working with.
+Additionally, the matlab routine also provided us with the center of the
+least-squares best fit circle for the data (1152.57606607623,
+394.773399557239), which we will need in the following section.
+
+
+    \subsubsection{9.1.1 Converting x and y values to angular position (Θ)}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}104}]:} \PY{c}{\PYZsh{}read the csv file}
+          \PY{n}{PendData} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{loadtxt}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{data/pend\PYZus{}data.csv}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{skiprows}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{,}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}convert the numpy structure into a pandas DataFrame}
+          \PY{n}{PendFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{PendData}\PY{p}{,}\PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{x(pixels)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{y(pixels)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{PendFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}104}]:}    time(sec)  x(pixels)  y(pixels)
+          0    0.00000    347.397     11.801
+          1    0.15452    722.760     60.761
+          2    0.26375    748.770     66.665
+          3    0.32808    598.070     28.983
+          4    0.40682    384.457     11.128
+\end{Verbatim}
+        
+    Using the provided data set and center of the circle, let's make some
+changes to our data frame.
+
+    First, we need to convert x and y to Θ to obtain a time series in this
+format:
+
+Where: 
+
+    Let's write a fucntion that uses this equation to create a new column in
+the data frame that contains the computed Θ values.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}105}]:} \PY{c}{\PYZsh{}function takes y and x, then returns the solution to the above equation}
+          \PY{k}{def} \PY{n+nf}{calc\PYZus{}theta}\PY{p}{(}\PY{n}{y}\PY{p}{,}\PY{n}{x}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{p}{(}\PY{p}{(}\PY{l+m+mi}{180}\PY{o}{/}\PY{n}{math}\PY{o}{.}\PY{n}{pi}\PY{p}{)}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{atan2}\PY{p}{(}\PY{p}{(}\PY{n}{y}\PY{o}{\PYZhy{}}\PY{l+m+mf}{1152.57606607263}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{x}\PY{o}{\PYZhy{}}\PY{l+m+mf}{394.773399557239}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{o}{+}\PY{l+m+mi}{90}
+          
+          \PY{c}{\PYZsh{}the left side creates a new column in the data frame names \PYZdq{}theta\PYZdq{}}
+          \PY{c}{\PYZsh{}the right side uses information from the existing columns and the theta function above}
+          \PY{c}{\PYZsh{}to create the \PYZdq{}theta\PYZdq{} column}
+          \PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{row}\PY{p}{:} \PY{n}{calc\PYZus{}theta}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{y(pixels)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{x(pixels)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+          \PY{n}{PendFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}105}]:}    time(sec)  x(pixels)  y(pixels)      theta
+          0    0.00000    347.397     11.801  -2.378128
+          1    0.15452    722.760     60.761  16.720526
+          2    0.26375    748.770     66.665  18.055472
+          3    0.32808    598.070     28.983  10.255820
+          4    0.40682    384.457     11.128  -0.517825
+\end{Verbatim}
+        
+
+    \subsubsection{9.1.2 Graphing the Time series: Angular position vs.~Time}
+
+
+    Now that the data frame has a time column and a Θ column, let's graph
+the time series: 
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}106}]:} \PY{c}{\PYZsh{}open a figure window}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}plot the scatterplot first to keep the markers in the foreground}
+          \PY{c}{\PYZsh{}s is the size of the markers, and black is the color of the markers}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}built\PYZhy{}in DataFrame function to plot time as x and theta as y, with custom y limits, line width, and color}
+          \PY{n}{TSPlot} \PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{22}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}change background of the plot to white}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}axis\PYZus{}bgcolor}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{white}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{pendulum angular position (degrees)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{time (seconds)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Pendulum Position Time Series}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}increase the font size of the x and y ticks}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_265_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \subsubsection{9.1.3 Summary Statistics}
+
+
+    Now that we have a visualization of our dataset, let's look at some
+other useful information.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}107}]:} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}107}]:}         time(sec)   x(pixels)   y(pixels)       theta
+          count  512.000000  512.000000  512.000000  512.000000
+          mean    18.088852  389.999988   24.999988   -0.243205
+          std     10.262232  184.034433   14.569337    9.307719
+          min      0.000000    2.140000    9.884000  -20.105156
+          25\%      9.346825  235.100000   13.858000   -8.029286
+          50\%     18.119500  394.293500   20.843000   -0.024068
+          75\%     26.951250  551.912500   30.556750    7.897347
+          max     35.785000  770.170000   79.954000   19.179884
+\end{Verbatim}
+        
+    From this table we can see that our dataset took measurement of the
+pendulums position for a total of 35.785 seconds (since the timespan is
+equal to the max-min of the time column). What we do not know is whether
+or not the data points are evenly spaced in time. We can look at the
+graph above and note there are about 6-7 peaks per 5 second interval. We
+can also look at the spacing between the quantiles, the first 25\% of
+the data values taking place in a 9.346825 second span, with the
+following 25\% taking place in an 8.772675 second span (Q2-Q1), the
+following 25\% taking place in an 8.83175 second span (Q3-Q2), and the
+final 25\% taking place in an 8.83375 second span. Overall, it looks
+pretty close.
+
+    We can apply a smoother to obtain equally spaced ti's, but let's write a
+function to assess the time spacing of the data.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}108}]:} \PY{c}{\PYZsh{}this function will create an array with the difference between }
+          \PY{c}{\PYZsh{}each point so we can examine if the time intervals are consistent}
+          \PY{c}{\PYZsh{}throughout the data, returns a pandas series of differences}
+          \PY{k}{def} \PY{n+nf}{spacing\PYZus{}check}\PY{p}{(}\PY{n}{vector}\PY{p}{)}\PY{p}{:}
+              
+              \PY{c}{\PYZsh{}create a series with one less value than the vector (since the first entry}
+              \PY{c}{\PYZsh{}is 2nd\PYZhy{}1st of the vector) to store the difference values}
+              \PY{n}{diff} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{vector}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{dtype}\PY{o}{=}\PY{n+nb}{float}\PY{p}{)}
+              \PY{n}{difference} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{Series}\PY{p}{(}\PY{n}{diff}\PY{p}{)}
+              
+              \PY{k}{for} \PY{n}{time} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{vector}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{difference}\PY{p}{[}\PY{n}{time}\PY{p}{]}\PY{o}{=}\PY{n}{vector}\PY{p}{[}\PY{n}{time}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{vector}\PY{p}{[}\PY{n}{time}\PY{p}{]}
+              \PY{k}{return} \PY{n}{difference}    
+\end{Verbatim}
+
+    Let's create a series of differences using our function.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}109}]:} \PY{n}{TimeSpans} \PY{o}{=} \PY{n}{spacing\PYZus{}check}\PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    There are a couple ways to test that our function is working properly.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}110}]:} \PY{c}{\PYZsh{}this should be equal to 511, since we start by subtracting the second value from the first}
+          \PY{k}{print}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{TimeSpans}\PY{p}{)}\PY{p}{)}\PY{o}{==}\PY{l+m+mi}{511}
+          
+          \PY{c}{\PYZsh{}subtracting the first value of our time column from the second value should equal the first value of our difference array}
+          \PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{==}\PY{n}{TimeSpans}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+True
+    \end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}110}]:} True
+\end{Verbatim}
+        
+    Everything appears to be in order. Let's look at a plot of the
+difference to see if there is any increasing or decreasing trend in the
+time spacing of the data points.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}111}]:} \PY{c}{\PYZsh{}the first argument is a slice that takes the last 511 time }
+          \PY{c}{\PYZsh{}values so we can compare them to our 511 differences}
+          \PY{c}{\PYZsh{}to see if there is a change over time}
+          \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          \PY{n}{TimeSpacingPlot} \PY{o}{=} \PY{n}{fig}\PY{o}{.}\PY{n}{add\PYZus{}subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{n}{PendFrame}\PY{o}{.}\PY{n}{ix}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{:}\PY{l+m+mi}{511}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{n}{TimeSpans}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TimeSpacingPlot}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{difference between measurements (seconds)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TimeSpacingPlot}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{time (seconds)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TimeSpacingPlot}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Difference in time measurements as time progresses}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{TimeSpacingPlot}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{o}{.}\PY{l+m+mo}{06}\PY{p}{,}\PY{o}{.}\PY{l+m+mi}{157}\PY{p}{)}
+          \PY{n}{TimeSpacingPlot}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mf}{35.9}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_277_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \subsection{9.1.4 Modeling a Sine Wave}
+
+
+    In section 9.1.2, we graphed the pendulum data and saw a damped sine
+wave in the output. To build a model for this, we need a sinusoid with
+an exponential decay term.
+
+Where: t = Time, in seconds A = Peak Amplitude f = Frequency, in Hz Φ =
+Phase Shift B = Vertical shift
+
+    Now, we need to write a python function. This is one of the easier
+functions we have worked with. Simply translate the above function to
+code using the math package where necessary (such as math.pi).
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}114}]:} \PY{c}{\PYZsh{}function for sinwave}
+          \PY{k}{def} \PY{n+nf}{sin\PYZus{}wave}\PY{p}{(}\PY{n}{time}\PY{p}{,}\PY{n}{amp}\PY{p}{,}\PY{n}{freq}\PY{p}{,}\PY{n}{phi}\PY{p}{,}\PY{n}{vertShift}\PY{p}{,}\PY{n}{damp}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{p}{(}\PY{p}{(}\PY{n}{math}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{o}{*}\PY{n}{damp}\PY{o}{*}\PY{n}{time}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{p}{(}\PY{n}{amp}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{sin}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{math}\PY{o}{.}\PY{n}{pi}\PY{o}{*}\PY{n}{freq}\PY{o}{*}\PY{n}{time}\PY{o}{\PYZhy{}}\PY{n}{phi}\PY{p}{)}\PY{o}{+}\PY{n}{vertShift}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+    With this function, we can change the individual values of our Parameter
+estimates to find the ``best'' estimate by minimizing SSE. This is
+measured by the SSE printed below the next box of code.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}115}]:} \PY{c}{\PYZsh{}changing these values and excuting this code after each change }
+          \PY{c}{\PYZsh{}will alter the value. }
+          \PY{n}{amp} \PY{o}{=} \PY{l+m+mf}{19.649}
+          \PY{n}{freq} \PY{o}{=} \PY{l+m+mf}{1.26082}
+          \PY{n}{phi} \PY{o}{=} \PY{o}{.}\PY{l+m+mi}{18205}
+          \PY{n}{vertShift} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{o}{.}\PY{l+m+mi}{4705}
+          \PY{n}{damp} \PY{o}{=} \PY{o}{.}\PY{l+m+mo}{026}\PY{l+m+mi}{95}
+          
+          \PY{c}{\PYZsh{}creates a new column in the DataFrame and populates it with sine wave values}
+          \PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{SineValues}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{row}\PY{p}{:} \PY{n}{sin\PYZus{}wave}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{amp}\PY{p}{,}\PY{n}{freq}\PY{p}{,}\PY{n}{phi}\PY{p}{,}\PY{n}{vertShift}\PY{p}{,}\PY{n}{damp}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}check sum of squares to see if error is decreasing}
+          \PY{n}{SSE} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{\PYZhy{}}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{SineValues}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+          \PY{k}{print}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{SSE:}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{n}{SSE}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('SSE:', 983.71108227071329)
+    \end{Verbatim}
+
+    As you can see above, my estimated Parameters are fairly precise.
+Playing around with them might yield an even lower SSE, but it shouldn't
+be much different from my printed value.
+
+    Let's plot the model we just made against the graph from Section 9.1.2
+and see how they compare.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}119}]:} \PY{c}{\PYZsh{}open a figure window and color it white}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}original points}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}original line}
+          \PY{n}{TSPlot} \PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{22}\PY{p}{,}\PY{l+m+mi}{20}\PY{p}{)}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}my model line}
+          \PY{n}{PendFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{SineValues}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{22}\PY{p}{,}\PY{l+m+mi}{22}\PY{p}{)}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{blue}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}change background to white}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}axis\PYZus{}bgcolor}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{white}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{pendulum angular position (degrees)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{time (seconds)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Pendulum Position Time Series: Model Fit and Observed Fit}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Fit Data}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Approximation}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Data Points (time,theta)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_286_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Not too shabby. They appear to match the least toward the end of the
+time period.
+
+    We can look at the residuals to see where the model matches and fails to
+match the pendulum data.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}121}]:} \PY{c}{\PYZsh{}residuals are the observed values at ti \PYZhy{} the values from model at ti}
+          \PY{k}{def} \PY{n+nf}{calc\PYZus{}resid}\PY{p}{(}\PY{n}{obs}\PY{p}{,}\PY{n}{pred}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{obs}\PY{o}{\PYZhy{}}\PY{n}{pred}
+          
+          \PY{c}{\PYZsh{}creates a new column in the DataFrame and populates it with residuals}
+          \PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{apply}\PY{p}{(}\PY{k}{lambda} \PY{n}{row}\PY{p}{:} \PY{n}{calc\PYZus{}resid}\PY{p}{(}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{theta}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{row}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{SineValues}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}122}]:} \PY{c}{\PYZsh{}open a figure window and color it white}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}plot the scatterplot first to keep the markers in the foreground}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{PendFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{l+m+mi}{8}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}built\PYZhy{}in DataFrame function to plot time as x and theta as y, with custom y limits, line width, and color}
+          \PY{n}{TSPlot} \PY{o}{=} \PY{n}{PendFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{time(sec)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{7}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{model residuals (degrees)}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{time (seconds)}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlot}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Residuals as time progresses}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_290_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    My visual inspection was confirmed by the residual plot. Additionally,
+we can see other areas where the model fails to capture the exact
+movement of the pendulum (such as the first 3 seconds).
+
+
+    \subsection{9.2 Geiger Counter Data}
+
+
+    This is another data set provided by Dr.~Hughes. It is the result of
+putting radioactive material next to a geiger counter. The data was
+collected using Matlab. The variables are the number of detections in a
+5 second period, for over 22 hours, and the timestamp.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}129}]:} \PY{k+kn}{import} \PY{n+nn}{matplotlib.dates} \PY{k+kn}{as} \PY{n+nn}{mdates}
+          \PY{k+kn}{from} \PY{n+nn}{datetime} \PY{k+kn}{import} \PY{n}{datetime}
+\end{Verbatim}
+
+
+    \subsubsection{9.2.1 Converting time and date stamps for plotting}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}130}]:} \PY{n}{gcFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}table}\PY{p}{(}\PY{l+s}{\PYZdq{}}\PY{l+s}{data/source\PYZus{}radioactivity.txt}\PY{l+s}{\PYZdq{}}\PY{p}{,}\PY{n}{names}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}check to make sure we\PYZsq{}re working with the \PYZdq{}entire\PYZdq{} data set}
+          \PY{n+nb}{len}\PY{p}{(}\PY{n}{gcFrame}\PY{o}{.}\PY{n}{Detections}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}130}]:} 16384
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}131}]:} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}131}]:}              Date/Time  Detections
+          0  09/23/2013 17:26:27           5
+          1  09/23/2013 17:26:32           9
+          2  09/23/2013 17:26:37           8
+          3  09/23/2013 17:26:42           7
+          4  09/23/2013 17:26:47           9
+\end{Verbatim}
+        
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}135}]:} \PY{c}{\PYZsh{}convert the timestamp to a time date2num can use}
+          \PY{c}{\PYZsh{}the \PYZpc{} and punctuation is written exactly how the information appears in the df}
+          \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{p}{[}\PY{n}{datetime}\PY{o}{.}\PY{n}{strptime}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+s}{\PYZdq{}}\PY{l+s}{\PYZpc{}}\PY{l+s}{m/}\PY{l+s+si}{\PYZpc{}d}\PY{l+s}{/}\PY{l+s}{\PYZpc{}}\PY{l+s}{Y }\PY{l+s}{\PYZpc{}}\PY{l+s}{H:}\PY{l+s}{\PYZpc{}}\PY{l+s}{M:}\PY{l+s}{\PYZpc{}}\PY{l+s}{S}\PY{l+s}{\PYZdq{}}\PY{p}{)} \PY{k}{for} \PY{n}{t} \PY{o+ow}{in} \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+          
+          \PY{c}{\PYZsh{}the scatter column is a conversion of the time column to a number we can }
+          \PY{c}{\PYZsh{}use to graph the points on the plot of the time series}
+          \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{mdates}\PY{o}{.}\PY{n}{date2num}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}136}]:} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{head}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}136}]:}              Date/Time  Detections                Time        Scatter
+          0  09/23/2013 17:26:27           5 2013-09-23 17:26:27  735134.726701
+          1  09/23/2013 17:26:32           9 2013-09-23 17:26:32  735134.726759
+          2  09/23/2013 17:26:37           8 2013-09-23 17:26:37  735134.726817
+          3  09/23/2013 17:26:42           7 2013-09-23 17:26:42  735134.726875
+          4  09/23/2013 17:26:47           9 2013-09-23 17:26:47  735134.726933
+\end{Verbatim}
+        
+
+    \subsubsection{9.2.2 Plotting the Geiger counter time series with points}
+
+
+    There are many plotting options, including ones specifically for time
+series data. I continued to have the best luck with the Panda's
+DataFrame and adjusted my plotting accordingly. Here's the code for a
+plot of the time series with the individual 16384 points. Change the
+line widths, colors, and sizes in the code below to customize your own
+time series plot.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}138}]:} \PY{c}{\PYZsh{}open a figure window and color it white}
+          \PY{n}{figure} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{6}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}built\PYZhy{}in DataFrame function to plot time as x and theta as y, with custom y limits,}
+          \PY{c}{\PYZsh{}line width, and color}
+          \PY{n}{TSPlotG} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{o}{.}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{23}\PY{p}{)}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{green}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}axis\PYZus{}bgcolor}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{white}\PY{l+s}{\PYZsq{}}\PY{p}{)}   \PY{c}{\PYZsh{}change background to white}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of Detections in 5 Seconds}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Geiger Counter Source Radioactivity Time Series}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}   \PY{c}{\PYZsh{}change the font size of the axes ticks}
+          
+          \PY{n}{xlabels} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{xticks} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{40}\PY{p}{)}\PY{p}{:}
+              \PY{c}{\PYZsh{}populate a list of 41 date/times with even time intervals over our 16834 points}
+              \PY{n}{xlabels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{420}\PY{p}{]}\PY{p}{)}
+              
+              \PY{c}{\PYZsh{}an array to place the date/time labels at the corresponding x value}
+              \PY{n}{xticks}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{420}\PY{p}{]}\PY{p}{)}     
+          
+          \PY{c}{\PYZsh{}place the date/time labels and rotate them}
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{xlabels}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}    
+          \PY{n}{TSPlotG}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{xticks}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}add the points to the graph}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{l+m+mf}{2.5}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_302_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \subsubsection{9.2.3 Moving Averages with Geiger Counter Data}
+
+
+    When we looked at the Pendulum data, we were worried about a constant
+Δt. I provided an, arguably, uncessary way to evalute the change from
+one ti to the next. If the time intervals are not equally spaced, you
+can create your own intervals in specified n-sized windows using a
+smoother.
+
+    Below is the simple moving average, or as Pandas calls it the
+``roling\_mean''.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}141}]:} \PY{c}{\PYZsh{}pandas has a built\PYZhy{}in rolling means function}
+          \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{rolling\PYZus{}mean}\PY{p}{(}\PY{n}{gcFrame}\PY{o}{.}\PY{n}{Detections}\PY{p}{,}\PY{n}{window}\PY{o}{=}\PY{l+m+mi}{24}\PY{p}{)}
+\end{Verbatim}
+
+    Plot the rolling mean over the original geiger counter data.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}143}]:} \PY{c}{\PYZsh{}open a figure window and color it white}
+          \PY{n}{figure} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}built\PYZhy{}in DataFrame function to plot time as x and theta as y, with custom y limits,}
+          \PY{c}{\PYZsh{}line width, and color}
+          \PY{n}{TSPlotG2} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{23}\PY{p}{)}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{n}{Line2} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of Detections in 5 Seconds}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Geiger Counter Source Radioactivity Time Series}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}   \PY{c}{\PYZsh{}change the font size of the axes ticks}
+          
+          \PY{n}{xlabels} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{xticks} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{40}\PY{p}{)}\PY{p}{:}
+              \PY{c}{\PYZsh{}populate a list of 41 date/times with even time intervals over our 16834 points}
+              \PY{n}{xlabels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{420}\PY{p}{]}\PY{p}{)}
+              
+              \PY{c}{\PYZsh{}an array to place the date/time labels at the corresponding x value}
+              \PY{n}{xticks}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{420}\PY{p}{]}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}place the date/time labels and rotate them}
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{xlabels}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)} 
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{xticks}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}add the points to the graph}
+          \PY{n}{Scat} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{scatter}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{s}\PY{o}{=}\PY{l+m+mf}{2.5}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{black}\PY{l+s}{\PYZsq{}}\PY{p}{)} 
+          \PY{n}{TSPlotG2}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Fit Data}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{Data Points (time,detections/5sec)}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_308_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    I have heard the centered moving average is also built-in to Pandas, but
+it was just as fast to write my own function for it.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}144}]:} \PY{c}{\PYZsh{}function for CMA since it wasn\PYZsq{}t built into pandas}
+          \PY{k}{def} \PY{n+nf}{CMA}\PY{p}{(}\PY{n}{vec}\PY{p}{,} \PY{n}{n}\PY{p}{)}\PY{p}{:}
+              \PY{n}{c} \PY{o}{=} \PY{n}{n}\PY{o}{/}\PY{l+m+mi}{2}
+              \PY{n}{cma} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{16384}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}  \PY{c}{\PYZsh{}created an empty array to store values}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{n}{c}\PY{p}{,} \PY{n+nb}{len}\PY{p}{(}\PY{n}{vec}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{c}\PY{p}{)}\PY{p}{:}    \PY{c}{\PYZsh{}look at values from n/2 to 16384\PYZhy{}n/2}
+                  \PY{n}{window} \PY{o}{=} \PY{n}{vec}\PY{p}{[}\PY{n}{i}\PY{o}{\PYZhy{}}\PY{n}{c}\PY{p}{:}\PY{n}{i}\PY{o}{+}\PY{n}{c}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}       \PY{c}{\PYZsh{}taking average over these values}
+                  \PY{n}{cma}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{mean}\PY{p}{(}\PY{n}{window}\PY{p}{)}\PY{p}{)}    \PY{c}{\PYZsh{}store average in array}
+              \PY{n}{cma}\PY{p}{[}\PY{p}{:}\PY{n}{c}\PY{p}{]} \PY{o}{=} \PY{n+nb+bp}{None}                    \PY{c}{\PYZsh{}fill first n/2 values with None}
+              \PY{n}{cma}\PY{p}{[}\PY{p}{(}\PY{n+nb}{len}\PY{p}{(}\PY{n}{vec}\PY{p}{)}\PY{o}{\PYZhy{}}\PY{n}{c}\PY{p}{)}\PY{p}{:}\PY{p}{]} \PY{o}{=} \PY{n+nb+bp}{None}         \PY{c}{\PYZsh{}fill last n/2 values with None}
+              \PY{k}{return} \PY{n}{cma}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}145}]:} \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CMA}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{CMA}\PY{p}{(}\PY{n}{gcFrame}\PY{o}{.}\PY{n}{Detections}\PY{p}{,}\PY{l+m+mi}{24}\PY{p}{)}   \PY{c}{\PYZsh{}add column to the data frame}
+\end{Verbatim}
+
+    This time, let's look at only a section of the data. For this, we will
+slice the data from 7am to 8am on September 24th.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}147}]:} \PY{k}{print}\PY{p}{(}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{]}\PY{p}{,}\PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{10483}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+('09/24/2013 7:00:02', '09/24/2013 8:00:02')
+    \end{Verbatim}
+
+    With the indicies above, i'm creating a new data frame with all the
+varibles I want from 7am to 8am.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}148}]:} \PY{c}{\PYZsh{}slice the data}
+          \PY{n}{sliceFrame} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{DataFrame}\PY{p}{(}\PY{n}{gcFrame}\PY{o}{.}\PY{n}{CMA}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{:}\PY{l+m+mi}{10484}\PY{p}{]}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{CMA}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+          \PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{SMA}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{:}\PY{l+m+mi}{10484}\PY{p}{]}
+          \PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{Detections}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{:}\PY{l+m+mi}{10484}\PY{p}{]}
+          \PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{gcFrame}\PY{o}{.}\PY{n}{Scatter}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{:}\PY{l+m+mi}{10484}\PY{p}{]}
+          \PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{n}{gcFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{9763}\PY{p}{:}\PY{l+m+mi}{10484}\PY{p}{]}
+          \PY{n+nb}{len}\PY{p}{(}\PY{n}{sliceFrame}\PY{o}{.}\PY{n}{CMA}\PY{p}{)}
+\end{Verbatim}
+
+            \begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}148}]:} 721
+\end{Verbatim}
+        
+    Now there are only 721 observations. The way I wrote the axis function,
+it will need to be updated. There are time locators that will determine
+the spacing automatically, but I enjoy functions. If I had to do this
+more, I would write a general fuction for determining the time ticks for
+the x axis. After adjusting the x axis fuction, we'll see how the SMA
+and CMA compare in the sliced time window.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}153}]:} \PY{c}{\PYZsh{}open a figure window and color it white}
+          \PY{n}{figure} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{20}\PY{p}{,}\PY{l+m+mi}{8}\PY{p}{)}\PY{p}{)}
+          
+          
+          \PY{c}{\PYZsh{}built\PYZhy{}in DataFrame function to plot time as x and theta as y, with custom y limits, }
+          \PY{c}{\PYZsh{}line width, and color}
+          \PY{n}{TSPlotG3} \PY{o}{=} \PY{n}{sliceFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Detections}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{ylim}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{17}\PY{p}{)}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{grey}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          
+          \PY{c}{\PYZsh{}set x and y labels, title, and adjust thier sizes according}
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{set\PYZus{}ylabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{\PYZsh{} of Detections in 5 Seconds}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{set\PYZus{}title}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Geiger Counter Source Radioactivity Time Series}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{20}\PY{p}{)}
+          \PY{n}{plt}\PY{o}{.}\PY{n}{tick\PYZus{}params}\PY{p}{(}\PY{n}{axis}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{both}\PY{l+s}{\PYZsq{}}\PY{p}{,} \PY{n}{labelsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}   \PY{c}{\PYZsh{}change the font size of the axes ticks}
+          
+          \PY{n}{xlabels} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{n}{xticks} \PY{o}{=} \PY{p}{[}\PY{p}{]}
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{25}\PY{p}{)}\PY{p}{:}
+              \PY{c}{\PYZsh{}populate a list of 25 date/times with even time intervals over our 721 points}
+              \PY{n}{xlabels}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{9763}\PY{o}{+}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{30}\PY{p}{]}\PY{p}{)}  
+              
+              \PY{c}{\PYZsh{}an array to place the date/time labels at the corresponding x value}
+              \PY{n}{xticks}\PY{o}{.}\PY{n}{append}\PY{p}{(}\PY{n}{sliceFrame}\PY{p}{[}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{9763}\PY{o}{+}\PY{n}{i}\PY{o}{*}\PY{l+m+mi}{30}\PY{p}{]}\PY{p}{)}     \PY{c}{\PYZsh{}an array to place the date/time labels at the corresponding x value}
+          
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{set\PYZus{}xticklabels}\PY{p}{(}\PY{n}{xlabels}\PY{p}{,} \PY{n}{rotation}\PY{o}{=}\PY{l+m+mi}{90}\PY{p}{,} \PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}    \PY{c}{\PYZsh{}place the date/time labels and rotate them}
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{set\PYZus{}xticks}\PY{p}{(}\PY{n}{xticks}\PY{p}{)}
+          \PY{n}{Line2} \PY{o}{=} \PY{n}{sliceFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{red}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{Line3} \PY{o}{=} \PY{n}{sliceFrame}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{Scatter}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{y}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{CMA}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{c}\PY{o}{=}\PY{l+s}{\PYZsq{}}\PY{l+s}{blue}\PY{l+s}{\PYZsq{}}\PY{p}{)}
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{set\PYZus{}xlabel}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Date/Time}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{n}{fontsize}\PY{o}{=}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{TSPlotG3}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{p}{(}\PY{l+s}{\PYZsq{}}\PY{l+s}{Fit Data}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{SMA}\PY{l+s}{\PYZsq{}}\PY{p}{,}\PY{l+s}{\PYZsq{}}\PY{l+s}{CMA}\PY{l+s}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{)}\PY{p}{;}
+\end{Verbatim}
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{SeniorProjectPDF_files/SeniorProjectPDF_317_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+
+    \section{Chapter 10 Formatting and Coverting IPython Notebooks}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}}]:} 
+\end{Verbatim}
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
