@@ -1,7 +1,11 @@
 IPythonNotebook
 ===============
 
-Directory for Notebooks and associated files from my projects at Cal Poly
+Directory for Notebooks and associated files from my projects at Cal Poly.
+
+The TimeSeries notebooks consist of homework assignments from the quarter and the final portfolio. The portfolio can be viewed/navigated through the table of contents (TOC.ipynb).
+
+The SeniorProject notebooks consist of my Senior Project and Presentation. The introduction to the project can be found in "Chapter 1". The presentation can be viewed/navigated through "Presentation.ipynb" 
 
 Use this link to read the notebooks:
 http://nbviewer.ipython.org/github/JeremyMMulcahey/
